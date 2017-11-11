@@ -16,6 +16,7 @@
 [Block and Transaction Types]: https://crates.io/crates/etcommon-block
 [Shortcuts and Helper Functions for Hash  Functions]: https://crates.io/crates/etcommon-crypto
 [Solidity Grammar]: https://github.com/solidityj/solidity-antlr4
+[Native Cross-Platform Rust-bindings to NodeJS]: https://github.com/neon-bindings/neon
 
 
 # Good-To-Know Abbreviations:
