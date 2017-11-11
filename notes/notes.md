@@ -15,7 +15,7 @@
 [Ethereum Virtual Machine]: https://crates.io/crates/evm
 [Block and Transaction Types]: https://crates.io/crates/etcommon-block
 [Shortcuts and Helper Functions for Hash  Functions]: https://crates.io/crates/etcommon-crypto
-
+[Solidity Grammar]: https://github.com/solidityj/solidity-antlr4
 
 
 # Good-To-Know Abbreviations:
@@ -83,9 +83,6 @@ This means the following source mappings represent the same information:
 
 1:2:1;:9;2::2;;
 ```
-
-
-
 
 
 
