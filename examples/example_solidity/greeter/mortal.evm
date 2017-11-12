@@ -1,0 +1,121 @@
+    /* "greeter.sol":0:353  contract mortal {... */
+  mstore(0x40, 0x60)
+    /* "greeter.sol":183:224  function mortal() { owner = msg.sender; } */
+  jumpi(tag_1, iszero(callvalue))
+  0x0
+  dup1
+  revert
+tag_1:
+    /* "greeter.sol":211:221  msg.sender */
+  caller
+    /* "greeter.sol":203:208  owner */
+  0x0
+  dup1
+    /* "greeter.sol":203:221  owner = msg.sender */
+  0x100
+  exp
+  dup2
+  sload
+  dup2
+  0xffffffffffffffffffffffffffffffffffffffff
+  mul
+  not
+  and
+  swap1
+  dup4
+  0xffffffffffffffffffffffffffffffffffffffff
+  and
+  mul
+  or
+  swap1
+  sstore
+  pop
+    /* "greeter.sol":0:353  contract mortal {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x0
+  codecopy
+  0x0
+  return
+stop
+
+sub_0: assembly {
+        /* "greeter.sol":0:353  contract mortal {... */
+      mstore(0x40, 0x60)
+      jumpi(tag_1, lt(calldatasize, 0x4))
+      calldataload(0x0)
+      0x100000000000000000000000000000000000000000000000000000000
+      swap1
+      div
+      0xffffffff
+      and
+      dup1
+      0x41c0e1b5
+      eq
+      tag_2
+      jumpi
+    tag_1:
+      0x0
+      dup1
+      revert
+        /* "greeter.sol":286:351  function kill() { if (msg.sender == owner) selfdestruct(owner); } */
+    tag_2:
+      jumpi(tag_3, iszero(callvalue))
+      0x0
+      dup1
+      revert
+    tag_3:
+      tag_4
+      jump(tag_5)
+    tag_4:
+      stop
+    tag_5:
+        /* "greeter.sol":322:327  owner */
+      0x0
+      dup1
+      swap1
+      sload
+      swap1
+      0x100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "greeter.sol":308:327  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "greeter.sol":308:318  msg.sender */
+      caller
+        /* "greeter.sol":308:327  msg.sender == owner */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      eq
+        /* "greeter.sol":304:348  if (msg.sender == owner) selfdestruct(owner) */
+      iszero
+      tag_7
+      jumpi
+        /* "greeter.sol":342:347  owner */
+      0x0
+      dup1
+      swap1
+      sload
+      swap1
+      0x100
+      exp
+      swap1
+      div
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "greeter.sol":329:348  selfdestruct(owner) */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+      selfdestruct
+        /* "greeter.sol":304:348  if (msg.sender == owner) selfdestruct(owner) */
+    tag_7:
+        /* "greeter.sol":286:351  function kill() { if (msg.sender == owner) selfdestruct(owner); } */
+      jump	// out
+
+    auxdata: 0xa165627a7a72305820283e7c46b1a4d88c595f9ba1d6ec7b87e19eac5164601d3a7cf7062913b214440029
+}

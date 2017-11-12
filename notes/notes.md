@@ -9,12 +9,9 @@
 # Potentially Useful Libraries:
 
 [ETH Contracts To Bytecode]: https://crates.io/crates/ethabi-contract
-[Ethereum JSON-RPC Client]: https://crates.io/crates/web3
-[TestRPC Tool]: https://crates.io/crates/sputnikvm-dev
 [Generic Blockchain Interface]: https://crates.io/crates/blockchain
 [Ethereum Virtual Machine]: https://crates.io/crates/evm
 [Block and Transaction Types]: https://crates.io/crates/etcommon-block
-[Shortcuts and Helper Functions for Hash  Functions]: https://crates.io/crates/etcommon-crypto
 [Solidity Grammar]: https://github.com/solidityj/solidity-antlr4
 [Native Cross-Platform Rust-bindings to NodeJS]: https://github.com/neon-bindings/neon
 
