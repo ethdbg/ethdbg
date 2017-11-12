@@ -4,3 +4,6 @@
 [submodule "testrpc"]
 	path = testrpc
 	url = git@github.com:InsidiousMind/testrpc.git
+[submodule "ganache-core"]
+	path = ganache-core
+	url = git@github.com:trufflesuite/ganache-core.git
