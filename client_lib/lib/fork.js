@@ -78,16 +78,15 @@ module.exports = function fork() {
     console.log("");
     console.log("Listening on " + (options.hostname || "localhost") + ":" + options.port);
 
+    state.blockchain.vm.on('step', function () {
+      console.log("Contract Got to first instruction!");
+    });
+
   });
 
   /* Pipe output to Rust process */
   output = JSON.stringify({});
   fs.writeSync(1, output);
-
-  state.blockchain.vm.on('step', function () {
-    console.log("Contract Got to first instruction!");
-  });
-  
 
   /** Fall into Rust Code from here on out **/
 }
