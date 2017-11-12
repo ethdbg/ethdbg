@@ -1,0 +1,6 @@
+[submodule "ethereumjs-vm"]
+	path = ethereumjs-vm
+	url = git@github.com:InsidiousMind/ethereumjs-vm.git
+[submodule "testrpc"]
+	path = testrpc
+	url = git@github.com:InsidiousMind/testrpc.git
