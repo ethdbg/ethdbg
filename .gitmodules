@@ -3,7 +3,12 @@
 	url = git@github.com:InsidiousMind/ethereumjs-vm.git
 [submodule "testrpc"]
 	path = testrpc
-	url = git@github.com:InsidiousMind/testrpc.git
+	url = https://github.com/ethereumjs/testrpc.git
+	branch = master
 [submodule "ganache-core"]
 	path = ganache-core
 	url = git@github.com:InsidiousMind/ganache-core.git
+[submodule "client_lib/lib/testrpc"]
+	path = client_lib/lib/testrpc
+	url = https://github.com/ethereumjs/testrpc.git
+	branch = master
