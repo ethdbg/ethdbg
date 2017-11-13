@@ -7,3 +7,5 @@ cd ../ganache-core/ &&
 npm install &&
 cd ../ethereumjs-vm &&
 npm install
+cd ../testrpc &&
+npm install
