@@ -2,7 +2,9 @@
 var URL = require("url");
 var fs = require("fs");
 var yargs = require("yargs/yargs");
+var Web3 = require("web3");
 var Ganache = require("../../ganache-core/index.js");
+var solc = require("solc");
 
 var parser = yargs()
 .option("unlock", {
@@ -70,18 +72,22 @@ module.exports = function fork() {
       console.log("Forked Chain");
       console.log("==================");
       console.log("Location:    " + fork_address);
-      // console.log("Block:       " + web3.toBigNumber(state.blockchain.fork_block_number).toString(10));
+      //console.log("Block:       " + web3.toBigNumber(state.blockchain.fork_block_number).toString(10));
       console.log("Network ID:  " + state.net_version);
       console.log("Time:        " + (state.blockchain.startTime || new Date()).toString());
     }
-
-    console.log("");
+    
     console.log("Listening on " + (options.hostname || "localhost") + ":" + options.port);
 
     state.blockchain.vm.on('step', function () {
       console.log("Contract Got to first instruction!");
     });
-
+   
+    deployContract(
+      'http://localhost:8545', 
+      './../../examples/example_solidity/Greeter.sol', 
+      ':greeter'
+    );
   });
 
   /* Pipe output to Rust process */
@@ -89,5 +95,61 @@ module.exports = function fork() {
   fs.writeSync(1, output);
 
   /** Fall into Rust Code from here on out **/
+}
+
+/**
+ * @param{data} string - Solidity Contract Bytecode
+ * @param{httpProvider} string - host and port of running testRPC
+ */
+function deployContract(httpProvider, contractPath, contractName) {
+  const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
+  const input = fs.readFileSync(contractPath);
+  const output = solc.compile(input.toString(), 1);
+  const bytecode = output.contracts[contractName].bytecode;
+  const abi = JSON.parse(output.contracts[contractName].interface);
+  
+  let contract = new web3.eth.Contract(abi);
+  console.log(contract);
+
+  contract.deploy({
+    data: '0x' + bytecode,
+  }).send({
+    from: web3.eth.coinbase,
+    gas: 90000 * 2,
+  }, function(error, transactionHash) {
+    console.log(error);
+    console.log(transactionHash);
+  })
+  .on('error', function(error) {
+  
+  })
+  .on('transactionHash', function(txHash) {
+  
+  })
+  .on('receipt', function(receipt) {
+    console.log('Receipt' + receipt.contractAddress);
+  })
+  .on('confirmation', function(confirmationNumber, receipt) {
+  
+  })
+  .then(function(newContractInstance){
+    console.log(newContractInstance.options.address);
+  });
+}
+
+/**
+ * @param{address} String - address of smart contract
+ * @param{testFunction} Function - function to test smartContract with
+ */
+function testContract(address, testFunction) {
+    // Reference to the deployed contract
+    const token = contract.at(address);
+    // Destination account for test
+    const dest_account = '0x002D61B362ead60A632c0e6B43fCff4A7a259285';
+
+    // Assert initial account balance, should be 100000
+    const balance1 = token.balances.call(web3.eth.coinbase);
+    console.log(balance1 == 1000000);
+    testFunction(token);
 }
 
