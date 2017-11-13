@@ -21,7 +21,6 @@ impl DebugContract {
     /**
      * Initializes new Contract to debug
      * acc_address: Your account address, hex
-     *
      */
     fn new(acc_addr: String, contract_addr: Option<String>, provider: String, contract_path: String) 
     -> DebugContract 

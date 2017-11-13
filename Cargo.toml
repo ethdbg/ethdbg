@@ -1,5 +1,5 @@
 [package]
-name = "ethdbg_copy"
+name = "ethdbg"
 version = "0.1.0"
 authors = ["insi"]
 
