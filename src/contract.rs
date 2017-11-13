@@ -4,7 +4,6 @@ use web3::types::{Address, U256};
 use web3::Transport;
 use web3::transports::http::Http;
 use web3;
-use serde_json::{Value, Error};
 use rustc_hex::FromHex;
 
 struct DebugContract {
