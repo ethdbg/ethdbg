@@ -26,12 +26,12 @@ mod tests {
         let web3 = web3::Web3::new(http);
         
         println!("Coinbase Addr: {:?}", web3.eth().coinbase().wait().unwrap());
-        let debugContract = DebugContract::new(
+        let debug_contract = DebugContract::new(
             web3.eth().coinbase().wait().unwrap(),
             None, 
             "http://localhost:8545".to_string()
         );
-        debugContract.deploy();
+        debug_contract.deploy();
     }
 }
 
