@@ -8,7 +8,3 @@
 [submodule "ganache-core"]
 	path = ganache-core
 	url = git@github.com:InsidiousMind/ganache-core.git
-[submodule "client_lib/lib/testrpc"]
-	path = client_lib/lib/testrpc
-	url = https://github.com/ethereumjs/testrpc.git
-	branch = master
