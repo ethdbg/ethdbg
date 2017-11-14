@@ -4,6 +4,6 @@ version = "0.1.0"
 authors = ["insi"]
 
 [dependencies]
-web3 = "0.1.0"
+web3 = { git = "https://github.com/tomusdrw/rust-web3", branch = "td-cleartransport" }
 rustc-hex = "1.0.0"
 
