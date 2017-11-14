@@ -12,7 +12,6 @@ pub struct DebugContract {
     pub contract: Option<Contract<Http>>,
     provider: String,
     data: Vec<u8>,
-
 }
 
 /**
@@ -50,7 +49,7 @@ impl DebugContract {
     /// Deploys a contract to the testRPC
     #[allow(dead_code)]
     pub fn deploy(mut self) {
-        
+        // TODO Something here is just not unwrapping properly. Usage issue?        
         let web3 = Self::init_web3(&self.provider);
        
         self.contract = Some(Contract::deploy(web3.eth(), include_bytes!("./contract.abi"))

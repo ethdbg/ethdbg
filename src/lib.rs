@@ -21,6 +21,7 @@ mod tests {
     }
     #[test]
     fn test_contract_deploy() {
+        // TODO Fails.
         let ( _eloop, http ) = web3::transports::Http::new("http://localhost:8545")
             .unwrap();
         let web3 = web3::Web3::new(http);
