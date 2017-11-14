@@ -4,7 +4,6 @@ var fs = require("fs");
 var yargs = require("yargs/yargs");
 var Web3 = require("web3");
 var Ganache = require("../../ganache-core/index.js");
-var solc = require("solc");
 
 var parser = yargs()
 .option("unlock", {
@@ -82,12 +81,6 @@ function fork() {
     state.blockchain.vm.on('step', function () {
       console.log("Contract Got to first instruction!");
     });
-    debugger;
-    deployContract(
-      'http://localhost:8545', 
-      './../../examples/example_solidity/Greeter.sol', 
-      ':greeter'
-    );
   });
 
   /* Pipe output to Rust process */
@@ -97,39 +90,4 @@ function fork() {
   /** Fall into Rust Code from here on out **/
 }
 
-/**
- * @param{data} string - Solidity Contract Bytecode
- * @param{httpProvider} string - host and port of running testRPC
- */
-function deployContract(httpProvider, contractPath, contractName) {
-  console.log("GET  here");
-  const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
-  const input = fs.readFileSync(contractPath, 'utf8');
-  // compiled contract
-  const output = solc.compile(input.toString(), 1);
-  
-  const bytecode = output.contracts[contractName].bytecode;
-  const gasEstimate = web3.eth.estimateGas({data: bytecode});
-  const abi = JSON.parse(output.contracts[contractName].interface);
-  
-  let Contract = web3.eth.contract(abi);
-  var ContractInstance = Contract.new({data: bytecode, gas: gasEstimate + 8000000, from: web3.eth.coinbase});
-  console.log(ContractInstance.transactionHash);
-}
-
-/**
- * @param{address} String - address of smart contract
- * @param{testFunction} Function - function to test smartContract with
- */
-function testContract(address, testFunction) {
-    // Reference to the deployed contract
-    const token = contract.at(address);
-    // Destination account for test
-    const dest_account = '0x002D61B362ead60A632c0e6B43fCff4A7a259285';
-
-    // Assert initial account balance, should be 100000
-    const balance1 = token.balances.call(web3.eth.coinbase);
-    console.log(balance1 == 1000000);
-    testFunction(token);
-}
 fork();
