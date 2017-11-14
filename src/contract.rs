@@ -22,6 +22,8 @@ impl DebugContract {
     /**
      * Initializes new Contract to debug
      * acc_address: Your account address, hex
+     * contract_addr: The address of an already-deployed contract
+     * provider: the url location of the testRPC
      */
     #[allow(dead_code)]
     pub fn new(acc_addr: Address, contract_addr: Option<String>, provider: String) 
@@ -34,7 +36,8 @@ impl DebugContract {
         if let Some(addr) = contract_addr {
             c_addr = Some(addr.parse().unwrap());
         } else { c_addr = None }
-
+        
+        println!("Get to very end of new()");
         DebugContract {
             acc_addr,
             contract_addr: c_addr,
@@ -45,10 +48,11 @@ impl DebugContract {
     }
 
     /// Deploys a contract to the testRPC
+    #[allow(dead_code)]
     pub fn deploy(mut self) {
        self.contract = Some(Contract::deploy(self.web3.eth(), include_bytes!("./contract.abi")).unwrap()
            .confirmations(4)
-           .options(Options::with(|mut opt| opt.gas = Some(5_000_000.into())))
+           .options(Options::with(|opt| opt.gas = Some(5_000_000.into())))
            .execute(self.data, (
                 U256::from(1_000_000),
                 "Debug".to_owned(),
