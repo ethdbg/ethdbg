@@ -9,15 +9,18 @@ use rustc_hex::FromHex;
 pub struct DebugContract {
     pub acc_addr: Address,
     pub contract_addr: Option<Address>,
-    web3: web3::Web3<Http>,
-    data: Vec<u8>,
     pub contract: Option<Contract<Http>>,
+    provider: String,
+    data: Vec<u8>,
+
 }
 
 /**
  * provides utility functions for deploying and testing Contracts on the testRPC
  *
  */
+// this library is not fully fleshes out
+// when using web3, need to create new object each time
 impl DebugContract {
     /**
      * Initializes new Contract to debug
@@ -28,9 +31,7 @@ impl DebugContract {
     #[allow(dead_code)]
     pub fn new(acc_addr: Address, contract_addr: Option<String>, provider: String) 
     -> DebugContract 
-    {
-        let ( _eloop, http ) = web3::transports::Http::new(&provider).unwrap();
-        let web3 = web3::Web3::new(http);
+    {   
         let bytecode: Vec<u8> = include_str!("./contract.code").from_hex().unwrap();
         let c_addr;
         if let Some(addr) = contract_addr {
@@ -38,19 +39,23 @@ impl DebugContract {
         } else { c_addr = None }
         
         println!("Get to very end of new()");
-        DebugContract {
+        return DebugContract {
             acc_addr,
             contract_addr: c_addr,
-            web3,
-            data: bytecode,
             contract: None,
-        }
+            provider,
+            data: bytecode,
+        };
     }
 
     /// Deploys a contract to the testRPC
     #[allow(dead_code)]
     pub fn deploy(mut self) {
-       self.contract = Some(Contract::deploy(self.web3.eth(), include_bytes!("./contract.abi")).unwrap()
+        
+        let web3 = Self::init_web3(&self.provider);
+       
+        self.contract = Some(Contract::deploy(web3.eth(), include_bytes!("./contract.abi"))
+            .unwrap()
            .confirmations(4)
            .options(Options::with(|opt| opt.gas = Some(5_000_000.into())))
            .execute(self.data, (
@@ -62,9 +67,15 @@ impl DebugContract {
            .expect("Correct parameters are passed to the constructor.")
            .wait()
            .unwrap());
+
        let result = self.contract.unwrap().query("greet", (self.acc_addr, ), None, Options::default(), None);
        let greeting: U256 = result.wait().unwrap();
        println!("Greeting: {:?}", greeting);
+    }
+
+    fn init_web3(provider: &String) -> web3::Web3<Http> {
+        let (_eloop, http) = web3::transports::Http::new(provider).unwrap();
+        web3::Web3::new(http)
     }
 
     /// Sends a test transaction to the testRPC

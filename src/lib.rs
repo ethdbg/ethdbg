@@ -13,6 +13,7 @@ mod tests {
     use web3::helpers::CallResult;
     use web3::futures::Future;
     use web3;
+    use std::process;
 
     #[test]
     fn it_works() {
@@ -20,7 +21,8 @@ mod tests {
     }
     #[test]
     fn test_contract_deploy() {
-        let ( _eloop, http ) = web3::transports::Http::new("http://localhost:8545").unwrap();
+        let ( _eloop, http ) = web3::transports::Http::new("http://localhost:8545")
+            .unwrap();
         let web3 = web3::Web3::new(http);
         
         println!("Coinbase Addr: {:?}", web3.eth().coinbase().wait().unwrap());
@@ -29,7 +31,6 @@ mod tests {
             None, 
             "http://localhost:8545".to_string()
         );
-        println!("This means I must get to here");
         debugContract.deploy();
     }
 }
