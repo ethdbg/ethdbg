@@ -21,7 +21,7 @@ var options = {
   total_accounts: argv.a || argv.accounts,
   blocktime: argv.b || argv.blocktime,
   gasPrice: argv.g || argv.gasPrice,
-  gasLimit: argv.l || argv.gasLimit,
+  gasLimit: argv.l || argv.gasLimit || 3000000,
   accounts: null, // was parseAccounts(accounts)
   unlocked_accounts: argv.unlock,
   fork: argv.f || argv.fork || 'http://localhost:8545',

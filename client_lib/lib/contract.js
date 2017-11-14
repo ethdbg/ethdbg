@@ -14,12 +14,12 @@ function deployContract(httpProvider, contractPath, contractName) {
   // compiled contract
   const output = solc.compile(input.toString(), 1);
   
-  const bytecode = output.contracts[contractName].bytecode;
-  const gasEstimate = web3.eth.estimateGas({data: bytecode});
+  const bytecode = '0x' + output.contracts[contractName].bytecode;
+
   const abi = JSON.parse(output.contracts[contractName].interface);
-  
   let Contract = web3.eth.contract(abi);
-  var ContractInstance = Contract.new({data: bytecode, gas: gasEstimate, from: web3.eth.coinbase});
+ 
+  var ContractInstance = Contract.new({data: bytecode, gas: 1000000*2, from: web3.eth.coinbase});
   console.log(ContractInstance.transactionHash);
 }
 
