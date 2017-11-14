@@ -38,7 +38,7 @@ var options = {
 // Modify ganache to give a 'vm' object back
 // 'vm.on()' will fill socket rust is communicating with to awaken Rust process
 // Rust enters debug ptrace of Eth EVM
-module.exports = function fork() {
+function fork() {
   var output;
   var fork_address;
 
@@ -82,7 +82,7 @@ module.exports = function fork() {
     state.blockchain.vm.on('step', function () {
       console.log("Contract Got to first instruction!");
     });
-   
+    debugger;
     deployContract(
       'http://localhost:8545', 
       './../../examples/example_solidity/Greeter.sol', 
@@ -102,39 +102,19 @@ module.exports = function fork() {
  * @param{httpProvider} string - host and port of running testRPC
  */
 function deployContract(httpProvider, contractPath, contractName) {
+  console.log("GET  here");
   const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
-  const input = fs.readFileSync(contractPath);
+  const input = fs.readFileSync(contractPath, 'utf8');
+  // compiled contract
   const output = solc.compile(input.toString(), 1);
+  
   const bytecode = output.contracts[contractName].bytecode;
+  const gasEstimate = web3.eth.estimateGas({data: bytecode});
   const abi = JSON.parse(output.contracts[contractName].interface);
   
-  let contract = new web3.eth.Contract(abi);
-  console.log(contract);
-
-  contract.deploy({
-    data: '0x' + bytecode,
-  }).send({
-    from: web3.eth.coinbase,
-    gas: 90000 * 2,
-  }, function(error, transactionHash) {
-    console.log(error);
-    console.log(transactionHash);
-  })
-  .on('error', function(error) {
-  
-  })
-  .on('transactionHash', function(txHash) {
-  
-  })
-  .on('receipt', function(receipt) {
-    console.log('Receipt' + receipt.contractAddress);
-  })
-  .on('confirmation', function(confirmationNumber, receipt) {
-  
-  })
-  .then(function(newContractInstance){
-    console.log(newContractInstance.options.address);
-  });
+  let Contract = web3.eth.contract(abi);
+  var ContractInstance = Contract.new({data: bytecode, gas: gasEstimate + 8000000, from: web3.eth.coinbase});
+  console.log(ContractInstance.transactionHash);
 }
 
 /**
@@ -152,4 +132,4 @@ function testContract(address, testFunction) {
     console.log(balance1 == 1000000);
     testFunction(token);
 }
-
+fork();

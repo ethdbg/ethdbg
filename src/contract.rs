@@ -38,14 +38,13 @@ impl DebugContract {
             c_addr = Some(addr.parse().unwrap());
         } else { c_addr = None }
         
-        println!("Get to very end of new()");
-        return DebugContract {
+        DebugContract {
             acc_addr,
             contract_addr: c_addr,
             contract: None,
             provider,
             data: bytecode,
-        };
+        }
     }
 
     /// Deploys a contract to the testRPC
@@ -57,7 +56,7 @@ impl DebugContract {
         self.contract = Some(Contract::deploy(web3.eth(), include_bytes!("./contract.abi"))
             .unwrap()
            .confirmations(4)
-           .options(Options::with(|opt| opt.gas = Some(5_000_000.into())))
+           .options(Options::with(|mut opt| opt.gas = Some(5_000_000.into())))
            .execute(self.data, (
                 U256::from(1_000_000),
                 "Debug".to_owned(),
