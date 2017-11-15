@@ -2,7 +2,7 @@
 git submodule init -- .
 git submodule update --recursive -- .
 npm install &&
-cd ../ganache-core/ &&
+cd ganache-core/ &&
 npm install &&
 cd ../ethereumjs-vm &&
 npm install
