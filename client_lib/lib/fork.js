@@ -2,6 +2,7 @@
 var URL = require("url");
 var fs = require("fs");
 var yargs = require("yargs/yargs");
+var Web3 = require("web3");
 var Ganache = require("../../ganache-core/index.js");
 
 var parser = yargs()
@@ -20,7 +21,7 @@ var options = {
   total_accounts: argv.a || argv.accounts,
   blocktime: argv.b || argv.blocktime,
   gasPrice: argv.g || argv.gasPrice,
-  gasLimit: argv.l || argv.gasLimit,
+  gasLimit: argv.l || argv.gasLimit || 3000000,
   accounts: null, // was parseAccounts(accounts)
   unlocked_accounts: argv.unlock,
   fork: argv.f || argv.fork || 'http://localhost:8545',
@@ -36,7 +37,7 @@ var options = {
 // Modify ganache to give a 'vm' object back
 // 'vm.on()' will fill socket rust is communicating with to awaken Rust process
 // Rust enters debug ptrace of Eth EVM
-module.exports = function fork() {
+function fork() {
   var output;
   var fork_address;
 
@@ -70,18 +71,16 @@ module.exports = function fork() {
       console.log("Forked Chain");
       console.log("==================");
       console.log("Location:    " + fork_address);
-      // console.log("Block:       " + web3.toBigNumber(state.blockchain.fork_block_number).toString(10));
+      //console.log("Block:       " + web3.toBigNumber(state.blockchain.fork_block_number).toString(10));
       console.log("Network ID:  " + state.net_version);
       console.log("Time:        " + (state.blockchain.startTime || new Date()).toString());
     }
-
-    console.log("");
+    
     console.log("Listening on " + (options.hostname || "localhost") + ":" + options.port);
 
     state.blockchain.vm.on('step', function () {
       console.log("Contract Got to first instruction!");
     });
-
   });
 
   /* Pipe output to Rust process */
@@ -91,3 +90,4 @@ module.exports = function fork() {
   /** Fall into Rust Code from here on out **/
 }
 
+fork();
