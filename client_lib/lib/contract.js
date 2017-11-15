@@ -2,46 +2,49 @@
 var Web3 = require("web3");
 var fs = require("fs");
 var solc = require("solc");
+const eth_new_contract = require("eth-new-contract");
 
-/**
- * @param{data} string - Solidity Contract Bytecode
- * @param{httpProvider} string - host and port of running testRPC
- */
-function deployContract(httpProvider, contractPath, contractName) {
-  console.log("GET  here");
-  const web3 = new Web3(new Web3.providers.HttpProvider(httpProvider));
-  const input = fs.readFileSync(contractPath, 'utf8');
-  // compiled contract
-  const output = solc.compile(input.toString(), 1);
+class Contract {
   
-  const bytecode = '0x' + output.contracts[contractName].bytecode;
+  /*
+   *
+   * @param{provider} http provider (http://localhost:8545
+   * @param{contract_path} path of the contract
+   * @param{options} options, TBA
+   */
+  constructor(provider, contract_path, contract_name, options) {
+    debugger;
+    this.provider = provider;
+    this.contract_path = contract_path;
+    this.contract_name = contract_name;
+    this.web3 = new Web3(new Web3.providers.HttpProvider(provider));
+    this.new_contract = eth_new_contract.default(this.web3);
+    this.contract = null;
+    this.options = options;
+  }
+  
+  deploy() {
+    const input = fs.readFileSync(this.contract_path, 'utf8');
+    const output = solc.compile(input.toString());
+    const bytecode = output.contracts[this.contract_name].bytecode;
+    const abi = JSON.parse(output.contracts[this.contract_name].interface);
+    let Contract = this.web3.eth.contract(abi);
+    this.contract = Contract.new({
+      data: bytecode, 
+      gas: 1000000*2, 
+      from: this.web3.eth.coinbase
+    });
+  }
 
-  const abi = JSON.parse(output.contracts[contractName].interface);
-  let Contract = web3.eth.contract(abi);
- 
-  var ContractInstance = Contract.new({data: bytecode, gas: 1000000*2, from: web3.eth.coinbase});
-  console.log(ContractInstance.transactionHash);
+  test(cb) {
+    let test_contract = this.web3.eth.contract(this.contract.abi);
+    let test_contract_instance = test_contract.at(this.contract.address);
+    let result = test_contract_instance.greet('hello');
+    console.log(result);
+    cb();
+  }
 }
 
-/**
- * @param{address} String - address of smart contract
- * @param{testFunction} Function - function to test smartContract with
- */
-function testContract(address, testFunction) {
-    // Reference to the deployed contract
-    const token = contract.at(address);
-    // Destination account for test
-    const dest_account = '0x002D61B362ead60A632c0e6B43fCff4A7a259285';
-
-    // Assert initial account balance, should be 100000
-    const balance1 = token.balances.call(web3.eth.coinbase);
-    console.log(balance1 == 1000000);
-    testFunction(token);
-}
-
-
-  deployContract(
-    'http://localhost:8545', 
-    './../../examples/example_solidity/Greeter.sol', 
-    ':greeter'
-  );
+let contract = new Contract('http://localhost:8545', './../../examples/example_solidity/Greeter.sol', ':greeter');
+contract.deploy();
+contract.test();
