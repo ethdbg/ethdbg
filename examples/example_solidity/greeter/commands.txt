@@ -1,2 +1,0 @@
-solc --combined-json srcmap-runtime > <FILE>
-solc --combined-json srcmap > <FILE>

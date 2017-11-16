@@ -1,0 +1,2 @@
+solc <CONTRACT> --combined-json srcmap-runtime > <OUTPUT_FILE>
+solc <CONTRACT> --combined-json srcmap > <OUTPUT_FILE>
