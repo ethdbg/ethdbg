@@ -1,6 +1,17 @@
 #! /bin/bash
 git submodule init -- .
 git submodule update --recursive -- .
+cd ethereumjs-vm/
+rm package-lock.json
+git pull origin master
+cd ../testrpc/
+rm package-lock.json
+git pull origin master
+cd ../ganache-core/
+rm package-lock.json
+git pull origin master
+cd ..
+rm pacakge-lock.json
 npm install &&
 cd ganache-core/ &&
 npm install &&
