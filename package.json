@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/InsidiousMind/ethdbg#readme",
   "dependencies": {
+    "cli-color": "^1.2.0",
     "eth-new-contract": "^0.3.0",
     "lodash": "^4.17.4",
     "solc": "^0.4.18",
