@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "docgen": "./node_modules/.bin/jsdoc lib/ --destination docs/"
   },
   "repository": {
     "type": "git",
