@@ -1,19 +1,45 @@
 #! /usr/bin/env node
 const fs = require('fs');
 const solc = require('solc');
+/**
+ *
+ * s:l:f:j
+ * S: Byte offset to the start of range in sourcecode
+ * L: Length of range in bytes
+ * F: Source index
+ * J:  i, o, or - *i*nto function, *o*ut of function,
+ *  or regular jump  (like part of a loop)
+ *
+ *  In order to compress these source mappings especially for bytecode,
+ *  the following rules are used:
+ *      If a field is empty, the value of the preceding element is used.
+ *      If a : is missing, all following fields are considered empty.
+ * This means the following source mappings represent the same information:
+ *
+ * ```
+ * 1:2:1;1:9:1;2:1:2;2:1:2;2:1:2
+ *
+ * 1:2:1;:9;2::2;;
+ * ```
+ */
 
 function test() {
   let path = './../examples/example_solidity/Greeter.sol';
   let source = fs.readFileSync(path, 'utf8');
   let compiledSource = solc.compile(source, 1);
-  let asm = compiledSource.contracts[':greeter'].assembly;
-  // console.log(asm['.data']['0']['.code']);
+  let bytecode = compiledSource.contracts[':greeter'].runtimeBytecode;
+  let sourcemap = compiledSource.contracts[':greeter'].srcmapRuntime;
+  // decompress(sourcemap);
+  console.log(sourcemap);
   }
 
 test();
 
-function decompress() {
-
+function decompress(srcmap) {
+  const srcmapArr = srcmap.split(';');
+  const decompressedSrcmapArr = srcmapArr.map(() => {
+ 
+  });
 }
 
 const codes = {

@@ -23,6 +23,7 @@
   "dependencies": {
     "cli-color": "^1.2.0",
     "eth-new-contract": "^0.3.0",
+    "ethereumjs-util": "^5.1.2",
     "lodash": "^4.17.4",
     "solc": "^0.4.18",
     "web3": "^0.20.2",

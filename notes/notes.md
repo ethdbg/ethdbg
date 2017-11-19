@@ -67,7 +67,7 @@ The source mappings inside the AST use the following notation:
 
 Where s is the byte-offset to the start of the range in the source file, l is the length of the source range in bytes and f is the source index mentioned above.
 
-The encoding in the source mapping for the bytecode is more complicated: It is a list of s:l:f:j separated by ;. Each of these elements corresponds to an instruction, i.e. you cannot use the byte offset but have to use the instruction offset (push instructions are longer than a single byte). The fields s, l and f are as above and j can be either i, o or - signifying whether a jump instruction goes into a function, returns from a function or is a regular jump as part of e.g. a loop.
+The encoding in the source mapping for the bytecode is more complicated: It is a list of `s:l:f:j` separated by ;. Each of these elements corresponds to an instruction, i.e. you cannot use the byte offset but have to use the instruction offset (push instructions are longer than a single byte). The fields s, l and f are as above and j can be either i, o or - signifying whether a jump instruction goes into a function, returns from a function or is a regular jump as part of e.g. a loop.
 
 In order to compress these source mappings especially for bytecode, the following rules are used:
 
