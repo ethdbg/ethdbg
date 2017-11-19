@@ -5,13 +5,14 @@ let Logger = require('../lib/logger.js');
 
 describe('SourceMap', () => {
   describe('#getInstOffset()', () => {
-    it('should return a correct thingy', () => {
+    it('should return a correct thingy', (done) => {
       let logger = new Logger(5);
       let contract = new Contract(null, './test/Simple.sol',
                                   'SimpleStorage', {});
-      assert.equal(4,
+      assert.equal(7,
       new SourceMap(contract, logger)
-                   .getInstOffset(4).startEnd.end);
+        .getInstOffset(7).startEnd.end.line);
+      done();
     });
   });
 });
