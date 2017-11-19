@@ -11,10 +11,9 @@ function test() {
   let bytecode = compiledSource.contracts[':greeter'].runtimeBytecode;
   let sourcemap = compiledSource.contracts[':greeter'].srcmapRuntime;
   const decoder = new Decoder();
-  let decompressedSrc = decoder.decompressAll(sourcemap);
-  decompressedSrc.forEach((match)=> {
-    console.log(source.substr(match.start, match.length + 1));
-  });
+  console.log(decoder.decompressAll(sourcemap));
+  decoder.atIndex(40, sourcemap);
+  console.log(source.substr(381, 349));
 }
 
 test();
