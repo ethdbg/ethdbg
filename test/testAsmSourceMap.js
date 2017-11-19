@@ -38,12 +38,6 @@ function test() {
 
 test();
 
-function decompress(srcmap) {
-  const srcmapArr = srcmap.split(';');
-  const decompressedSrcmapArr = srcmapArr.map(() => {
-
-  });
-}
 
 const codes = {
   // 0x0 range - arithmetic ops
