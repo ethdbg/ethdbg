@@ -3,6 +3,7 @@ let SourceMap = require('../lib/source_map.js');
 let Contract = require('../lib/contract.js');
 let Logger = require('../lib/logger.js');
 
+// TODO: Figure out why mocha times out
 describe('SourceMap', () => {
   describe('#getInstOffset()', () => {
     it('should return a correct thingy', (done) => {
