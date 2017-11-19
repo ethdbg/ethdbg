@@ -5,5 +5,11 @@
   },
   "parserOptions": {
     "ecmaVersion": 6
+  },
+  "env": {
+    "amd": true,
+    "node": true,
+    "mocha": true,
+    "es6": true,
   }
 }
