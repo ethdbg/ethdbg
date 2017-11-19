@@ -99,7 +99,7 @@ code to bytecode.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line28">line 28</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -153,17 +153,12 @@ code to bytecode.</li>
     
 
     
-    <h4 class="name" id="current_line"><span class="type-signature"></span>current_line<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="currentLine"><span class="type-signature"></span>currentLine<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    This should return the LineMapping object so that we can easily pull source code, line numbers,
-presence of a breakpoint, et cetera.
-</div>
 
 
 
@@ -196,6 +191,13 @@ presence of a breakpoint, et cetera.
     
 
     
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Sean Batzel, Andrew Plaza</li>
+        </ul>
+    </dd>
+    
 
     
 
@@ -206,7 +208,7 @@ presence of a breakpoint, et cetera.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line120">line 120</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -240,7 +242,7 @@ presence of a breakpoint, et cetera.
     
 
     
-    <h4 class="name" id="line_by_byte"><span class="type-signature"></span>line_by_byte<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="lineByByte"><span class="type-signature"></span>lineByByte<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -288,7 +290,7 @@ Referenced by the line_match function in order to pull line numbers
 out of the given range of bytes of source code.
 
 NOTE: If I'm thinking correctly, this should return the line number
-we want. 
+we want.
 
 WRITTEN RUBBER DUCK READY HERE WE GO:
 The sum is the current length of the source code in bytes. We iterate
@@ -310,7 +312,7 @@ number, bob's your uncle, get out of this function.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line92">line 92</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -344,7 +346,7 @@ number, bob's your uncle, get out of this function.</li>
     
 
     
-    <h4 class="name" id="line_match"><span class="type-signature"></span>line_match<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="lineMatch"><span class="type-signature"></span>lineMatch<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -401,7 +403,7 @@ This is the only use of the line_by_byte function.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line109">line 109</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -435,17 +437,12 @@ This is the only use of the line_by_byte function.</li>
     
 
     
-    <h4 class="name" id="next_line"><span class="type-signature"></span>next_line<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="nextLine"><span class="type-signature"></span>nextLine<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    This will essentially be the same thing as current_line, only we want a way to pull the next
-line without having to fiddle with indexing of LineMapping objects.
-</div>
 
 
 
@@ -478,6 +475,13 @@ line without having to fiddle with indexing of LineMapping objects.
     
 
     
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Sean Batzel, Andrew Plaza</li>
+        </ul>
+    </dd>
+    
 
     
 
@@ -488,7 +492,7 @@ line without having to fiddle with indexing of LineMapping objects.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line130">line 130</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line146">line 146</a>
     </li></ul></dd>
     
 
@@ -538,7 +542,7 @@ line without having to fiddle with indexing of LineMapping objects.
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 10:53:44 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 19:39:43 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
