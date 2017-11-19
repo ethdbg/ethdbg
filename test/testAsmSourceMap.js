@@ -23,6 +23,9 @@ const solc = require('solc');
  * ```
  */
 
+/**
+ * Test sourcemapping.
+ */
 function test() {
   let path = './../examples/example_solidity/Greeter.sol';
   let source = fs.readFileSync(path, 'utf8');
@@ -38,7 +41,7 @@ test();
 function decompress(srcmap) {
   const srcmapArr = srcmap.split(';');
   const decompressedSrcmapArr = srcmapArr.map(() => {
- 
+
   });
 }
 
