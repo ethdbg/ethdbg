@@ -37,3 +37,7 @@ All modified client libraries are kept up to date with upstream.
 Modifications to Ganache-Core:
 - added forked (https://github.com/InsidiousMind/ethereumjs-vm) ethereumjs-vm to dependency
   - allows freezing execution of VM if needbe. For debugging purposes.
+
+
+### General TODO:
+- edit code to follow new eslint style (google style + eslint rec)
