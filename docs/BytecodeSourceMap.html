@@ -30,6 +30,9 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>BytecodeSourceMap<span class="signature">()</span><span class="type-signature"></span></h2>
         
+            <div class="class-description">A class of functions for constructing the mapping of source
+code to bytecode.</div>
+        
     
 </header>
 
@@ -38,6 +41,8 @@
     
         
 
+    
+    <h2>Constructor</h2>
     
 
     
@@ -82,10 +87,7 @@
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>Sean Batzel
-
-A class of functions for constructing the mapping of source
-code to bytecode.</li>
+            <li>Sean Batzel</li>
         </ul>
     </dd>
     
@@ -160,6 +162,11 @@ code to bytecode.</li>
 
 
 
+<div class="description">
+    This should return the LineMapping object so that we can easily
+pull source code, line numbers, presence of a breakpoint, et cetera.
+</div>
+
 
 
 
@@ -208,7 +215,7 @@ code to bytecode.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line133">line 133</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line132">line 132</a>
     </li></ul></dd>
     
 
@@ -249,6 +256,23 @@ code to bytecode.</li>
 
 
 
+<div class="description">
+    Given the byte range (source_map[1..2]), determine the line we're in.
+Referenced by the line_match function in order to pull line numbers
+out of the given range of bytes of source code.
+
+NOTE: If I'm thinking correctly, this should return the line number
+we want.
+
+WRITTEN RUBBER DUCK READY HERE WE GO:
+The sum is the current length of the source code in bytes. We iterate
+over the entire set of lines of source code, and if the initial byte
+isn't in that line (i.e. the length of the source code we've checked
+isn't longer than the byte we're looking for) we just add to the sum
+and keep going. Otherwise, we're there! Good going! Return the line
+number, Bob's your uncle, get out of this function.
+</div>
+
 
 
 
@@ -283,22 +307,7 @@ code to bytecode.</li>
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>Sean Batzel
-
-Given the byte range (source_map[1..2]), determine the line we're in.
-Referenced by the line_match function in order to pull line numbers
-out of the given range of bytes of source code.
-
-NOTE: If I'm thinking correctly, this should return the line number
-we want.
-
-WRITTEN RUBBER DUCK READY HERE WE GO:
-The sum is the current length of the source code in bytes. We iterate
-over the entire set of lines of source code, and if the initial byte
-isn't in that line (i.e. the length of the source code we've checked
-isn't longer than the byte we're looking for) we just add to the sum
-and keep going. Otherwise, we're there! Good going! Return the line
-number, bob's your uncle, get out of this function.</li>
+            <li>Sean Batzel</li>
         </ul>
     </dd>
     
@@ -312,7 +321,7 @@ number, bob's your uncle, get out of this function.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line101">line 101</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -353,6 +362,11 @@ number, bob's your uncle, get out of this function.</li>
 
 
 
+<div class="description">
+    Return the set of the source line and starting/ending bytecode range.
+This is the only use of the line_by_byte function.
+</div>
+
 
 
 
@@ -387,9 +401,7 @@ number, bob's your uncle, get out of this function.</li>
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>Sean Batzel
-Return the set of the source line and starting/ending bytecode range.
-This is the only use of the line_by_byte function.</li>
+            <li>Sean Batzel</li>
         </ul>
     </dd>
     
@@ -403,7 +415,7 @@ This is the only use of the line_by_byte function.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line119">line 119</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line118">line 118</a>
     </li></ul></dd>
     
 
@@ -443,6 +455,12 @@ This is the only use of the line_by_byte function.</li>
     
 
 
+
+<div class="description">
+    This will essentially be the same thing as current_line
+only we want a way to pull the next having to fiddle
+with indexing of LineMapping objects.
+</div>
 
 
 
@@ -492,7 +510,7 @@ This is the only use of the line_by_byte function.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line146">line 146</a>
+        <a href="bytecode_source_map.js.html">bytecode_source_map.js</a>, <a href="bytecode_source_map.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -536,13 +554,13 @@ This is the only use of the line_by_byte function.</li>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AsmSourceMap.html">AsmSourceMap</a></li><li><a href="BytecodeSourceMap.html">BytecodeSourceMap</a></li><li><a href="Debugger.html">Debugger</a></li><li><a href="Fork.html">Fork</a></li><li><a href="LineMapping.html">LineMapping</a></li><li><a href="Logger.html">Logger</a></li><li><a href="module.exports.html">exports</a></li><li><a href="TestRPC.html">TestRPC</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clc">clc</a></li><li><a href="global.html#Contract">Contract</a></li><li><a href="global.html#solc">solc</a></li><li><a href="global.html#SourceMappingDecoder">SourceMappingDecoder</a></li><li><a href="global.html#testRpc">testRpc</a></li><li><a href="global.html#URL">URL</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AsmSourceMap.html">AsmSourceMap</a></li><li><a href="BytecodeSourceMap.html">BytecodeSourceMap</a></li><li><a href="Debugger.html">Debugger</a></li><li><a href="Fork.html">Fork</a></li><li><a href="LineMapping.html">LineMapping</a></li><li><a href="Logger.html">Logger</a></li><li><a href="module.exports.html">exports</a></li><li><a href="SourceMappingDecoder.html">SourceMappingDecoder</a></li><li><a href="TestRPC.html">TestRPC</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clc">clc</a></li><li><a href="global.html#Contract">Contract</a></li><li><a href="global.html#solc">solc</a></li><li><a href="global.html#testRpc">testRpc</a></li><li><a href="global.html#URL">URL</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 19:39:43 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 20:12:42 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>

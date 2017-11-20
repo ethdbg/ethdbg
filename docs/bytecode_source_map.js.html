@@ -30,14 +30,14 @@
 const solc = require('solc');
 
 /**
- * @author Sean Batzel
  *
  * A struct class used for associating source code lines with
  * the corresponding instructions in the bytecode.
+ * @author Sean Batzel
  */
 class LineMapping {
   /**
-   * @author{Sean Batzel}
+   * @author Sean Batzel
    * @param{Integer} lineNumber
    * @param{Integer} sourceLine
    * @param{Integer} byteLine
@@ -55,10 +55,10 @@ class LineMapping {
 }
 
 /**
- * @author Sean Batzel
- *
  * A class of functions for constructing the mapping of source
  * code to bytecode.
+ * @author Sean Batzel
+ *
  */
 class BytecodeSourceMap {
   /*
@@ -73,8 +73,7 @@ class BytecodeSourceMap {
    */
 
   /**
-   * @author Sean Batzel
-   * @author Andrew Plaza
+   * @author Sean Batzel, Andrew Plaza
    *
    * @param{string} sourceCode source code in utf8
    * @param{string} contractName name of contract to debug
@@ -90,9 +89,9 @@ class BytecodeSourceMap {
 
     // This line should split the source map file in to an array of
     // individual maps.
-    let sourceStrings = this.source.split('\n');
+    // let sourceStrings = this.source.split('\n');
     let byteSet = this.byte_c.split('');
-    let sourceMaps = this.srcmap_bin.split(';');
+    // let sourceMaps = this.srcmap_bin.split(';');
     this.line_mapping_set = [];
     for (let i = 0; i &lt; byteSet.length; i++) {
       // TODO: line_match expects beginning and end of range:w
@@ -104,7 +103,6 @@ class BytecodeSourceMap {
   }
 
   /**
-   * @author Sean Batzel
    *
    * Given the byte range (source_map[1..2]), determine the line we're in.
    * Referenced by the line_match function in order to pull line numbers
@@ -119,8 +117,9 @@ class BytecodeSourceMap {
    * isn't in that line (i.e. the length of the source code we've checked
    * isn't longer than the byte we're looking for) we just add to the sum
    * and keep going. Otherwise, we're there! Good going! Return the line
-   * number, bob's your uncle, get out of this function.
+   * number, Bob's your uncle, get out of this function.
    *
+   * @author Sean Batzel
    * @param{Array} source: the set of all lines of source
    * @param{Integer} map0: the beginning of a source code byte range.
    * @param{Integer} map1: the end of a source code range.
@@ -138,9 +137,9 @@ class BytecodeSourceMap {
   }
 
   /**
-   * @author Sean Batzel
    * Return the set of the source line and starting/ending bytecode range.
    * This is the only use of the line_by_byte function.
+   * @author Sean Batzel
    * @param{Array} sourceMap a particular source mapping set.
    * @return{Integer}
    */
@@ -153,23 +152,21 @@ class BytecodeSourceMap {
   }
 
   /**
-   * @author Sean Batzel, Andrew Plaza
-   * @return{Integer}
    * This should return the LineMapping object so that we can easily
    * pull source code, line numbers, presence of a breakpoint, et cetera.
+   * @author Sean Batzel, Andrew Plaza
+   * @return{Integer}
    */
   currentLine() {
-    // Get the source code range the current set of instructions covers
-    // Determine line number.
     return this.line_mapping_set.pop();
   }
 
   /**
-   * @author Sean Batzel, Andrew Plaza
-   * @return{Integer}
    * This will essentially be the same thing as current_line
    * only we want a way to pull the next having to fiddle
    * with indexing of LineMapping objects.
+   * @author Sean Batzel, Andrew Plaza
+   * @return{Integer}
    */
   nextLine() {
     // Get the source code range for the next line.
@@ -189,13 +186,13 @@ module.exports = BytecodeSourceMap;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AsmSourceMap.html">AsmSourceMap</a></li><li><a href="BytecodeSourceMap.html">BytecodeSourceMap</a></li><li><a href="Debugger.html">Debugger</a></li><li><a href="Fork.html">Fork</a></li><li><a href="LineMapping.html">LineMapping</a></li><li><a href="Logger.html">Logger</a></li><li><a href="module.exports.html">exports</a></li><li><a href="TestRPC.html">TestRPC</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clc">clc</a></li><li><a href="global.html#Contract">Contract</a></li><li><a href="global.html#solc">solc</a></li><li><a href="global.html#SourceMappingDecoder">SourceMappingDecoder</a></li><li><a href="global.html#testRpc">testRpc</a></li><li><a href="global.html#URL">URL</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AsmSourceMap.html">AsmSourceMap</a></li><li><a href="BytecodeSourceMap.html">BytecodeSourceMap</a></li><li><a href="Debugger.html">Debugger</a></li><li><a href="Fork.html">Fork</a></li><li><a href="LineMapping.html">LineMapping</a></li><li><a href="Logger.html">Logger</a></li><li><a href="module.exports.html">exports</a></li><li><a href="SourceMappingDecoder.html">SourceMappingDecoder</a></li><li><a href="TestRPC.html">TestRPC</a></li></ul><h3>Global</h3><ul><li><a href="global.html#clc">clc</a></li><li><a href="global.html#Contract">Contract</a></li><li><a href="global.html#solc">solc</a></li><li><a href="global.html#testRpc">testRpc</a></li><li><a href="global.html#URL">URL</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 19:39:43 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Nov 19 2017 20:12:42 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
