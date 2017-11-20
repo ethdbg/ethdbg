@@ -13,7 +13,7 @@ function test() {
   const decoder = new Decoder();
   let decompressedSrc = decoder.decompressAll(sourcemap);
   decompressedSrc.forEach((match)=> {
-    console.log(source.substr(match.start,match.length));
+    console.log(source.substr(match.start, match.length + 1));
   });
 }
 
