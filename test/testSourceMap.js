@@ -7,7 +7,7 @@ let Logger = require('../lib/logger.js');
 describe('SourceMap', () => {
   describe('#getInstOffset()', () => {
     it('should return a correct thingy', (done) => {
-      let logger = new Logger(5);
+      let logger = new Logger(1);
       let contract = new Contract(null, './test/Simple.sol',
                                   'SimpleStorage', {});
       assert.equal(7,
