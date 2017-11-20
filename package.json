@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm test",
-    "docgen": "./node_modules/.bin/jsdoc -r lib/ --destination docs/"
+    "test": "mocha",
+    "docgen": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose -r lib/ --destination docs/"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1",
     "jsdoc": "^3.5.5",
+    "minami": "^1.2.3",
     "mocha": "^4.0.1"
   }
 }

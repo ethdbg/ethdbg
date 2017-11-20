@@ -5,3 +5,4 @@ client_lib/node_modules/
 node_modules/
 .idea/
 lib/.node-xmlhttprequest*
+docs/
