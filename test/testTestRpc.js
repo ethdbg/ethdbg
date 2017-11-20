@@ -1,8 +1,8 @@
-import TestRPC from './../lib/test_rpc';
-import Logger from './../lib/logger';
-import Contract from './../lib/contract';
-import {fork} from 'child_process';
-import {expect} from 'chai';
+const TestRPC = require('./../lib/test_rpc');
+const Logger = require('./../lib/logger');
+const Contract = require('./../lib/contract');
+const {fork} = require('child_process');
+const {expect} = require('chai');
 
 let origTestRPC = null;
 describe('TestRpc', function() {

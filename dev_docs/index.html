@@ -46,10 +46,28 @@
                 
                 <li><a
                   href='#contract'
-                  class="">
+                  class=" toggle-sibling">
                   Contract
-                  
+                  <span class='icon'>▸</span>
                 </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#contractgetrealname'
+                        class='regular pre-open'>
+                        #getRealName
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
                 
                 </li>
               
@@ -58,6 +76,16 @@
                   href='#debugger'
                   class="">
                   Debugger
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fork'
+                  class="">
+                  Fork
                   
                 </a>
                 
@@ -113,7 +141,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/breakpointManager.js#L10-L28'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/breakpointManager.js#L10-L28'>
       <span>lib/breakpointManager.js</span>
       </a>
     
@@ -193,7 +221,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/breakpointManager.js#L35-L39'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/breakpointManager.js#L35-L39'>
       <span>lib/breakpointManager.js</span>
       </a>
     
@@ -244,7 +272,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/contract.js#L17-L83'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/contract.js#L18-L142'>
       <span>lib/contract.js</span>
       </a>
     
@@ -256,7 +284,7 @@ Manages contracts with web3
 uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
 
 
-  <div class='pre p1 fill-light mt0'>new Contract(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, contractPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, contractName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 fill-light mt0'>new Contract(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -284,7 +312,7 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>contractPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>path</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    path of the contract
 
           </div>
@@ -293,7 +321,7 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>contractName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    name of the contract
 
           </div>
@@ -332,6 +360,89 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='contractgetrealname'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getRealName(name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/contract.js#L46-L52'>
+      <span>lib/contract.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the name of the contract without ':' preceding it</p>
+
+
+  <div class='pre p1 fill-light mt0'>getRealName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of contract to process
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
 
   
 </section>
@@ -349,7 +460,7 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/debugger.js#L12-L88'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/debugger.js#L12-L88'>
       <span>lib/debugger.js</span>
       </a>
     
@@ -423,8 +534,8 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/forkc.js#L14-L122'>
-      <span>lib/forkc.js</span>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/fork.js#L15-L123'>
+      <span>lib/fork.js</span>
       </a>
     
   </div>
@@ -434,7 +545,7 @@ uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
 Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
 
 
-  <div class='pre p1 fill-light mt0'>new Fork(options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, logger: <a href="#logger">Logger</a>)</div>
+  <div class='pre p1 fill-light mt0'>new Fork(logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -451,8 +562,8 @@ Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    option for testRPC
+            <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
+	    logger class for debug/general output
 
           </div>
           
@@ -460,8 +571,83 @@ Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
       
         <div class='space-bottom0'>
           <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    option for testRPC
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fork'>
+      Fork
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/forkc.js#L15-L123'>
+      <span>lib/forkc.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Some code taken from ethereumjs/testrpc
+Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Fork(logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
             <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
 	    logger class for debug/general output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    option for testRPC
 
           </div>
           
@@ -498,7 +684,7 @@ Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/logger.js#L29-L91'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/logger.js#L29-L91'>
       <span>lib/logger.js</span>
       </a>
     
@@ -571,7 +757,7 @@ information you receive during runtime.</p>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/a795afc114e72844bcc2ab3cc42a4763d9c206a7/lib/test_rpc.js#L15-L95'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/test_rpc.js#L14-L98'>
       <span>lib/test_rpc.js</span>
       </a>
     
@@ -581,7 +767,7 @@ information you receive during runtime.</p>
   <p>Interact with Forked TestRPC object</p>
 
 
-  <div class='pre p1 fill-light mt0'>new TestRPC(location: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, contract: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, contractName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, logger: <a href="#logger">Logger</a>)</div>
+  <div class='pre p1 fill-light mt0'>new TestRPC(contract: <a href="#contract">Contract</a>, logger: <a href="#logger">Logger</a>)</div>
   
   
 
@@ -598,26 +784,8 @@ information you receive during runtime.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>location</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    location/hostname of testRPC
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>contract</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    contract path
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>contractName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    name of the contract
+            <span class='code bold'>contract</span> <code class='quiet'>(<a href="#contract">Contract</a>)</code>
+	    contract Object
 
           </div>
           

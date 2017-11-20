@@ -1,8 +1,8 @@
-import assert from 'assert';
-import SourceMap from './../lib/source_map';
-import Contract from './../lib/contract';
-import Logger from './../lib/logger';
-import Breakpoint from './../lib/breakpointManager';
+const assert = require('assert');
+const SourceMap = require('./../lib/source_map');
+const Contract = require('./../lib/contract');
+const Logger = require('./../lib/logger');
+const Breakpoint = require('./../lib/breakpointManager');
 
 describe('SourceMap', function() {
   describe('#getInstOffset()', function() {
