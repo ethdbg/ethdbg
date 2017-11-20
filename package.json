@@ -7,14 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-<<<<<<< Updated upstream
-    "test": "npm test",
-    "docgen": "./node_modules/.bin/jsdoc -r lib/ --destination docs/"
-=======
     "test": "mocha",
-    "testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'",
-    "docgen": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose -r lib/ --destination docs/"
->>>>>>> Stashed changes
+    "docgen": "./node_modules/.bin/jsdoc -r lib/ --destination docs/",
+    "testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'"
   },
   "repository": {
     "type": "git",
@@ -39,11 +34,7 @@
     "documentation": "^5.3.3",
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1",
-<<<<<<< Updated upstream
-    "jsdoc": "^3.5.5",
-=======
     "minami": "^1.2.3",
->>>>>>> Stashed changes
     "mocha": "^4.0.1"
   }
 }
