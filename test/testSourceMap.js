@@ -1,19 +1,17 @@
-#! /usr/bin/env node
-const fs = require('fs');
-const Decoder = require('./../lib/util/source_map_decoder.js');
-const solc = require('solc');
+let assert = require('assert');
+let SourceMap = require('../lib/source_map.js');
+let Contract = require('../lib/contract.js');
+let Logger = require('../lib/logger.js');
 
-
-function test() {
-  let path = './../examples/example_solidity/Greeter.sol';
-  let source = fs.readFileSync(path, 'utf8');
-  let compiledSource = solc.compile(source, 1);
-  let bytecode = compiledSource.contracts[':greeter'].runtimeBytecode;
-  let sourcemap = compiledSource.contracts[':greeter'].srcmapRuntime;
-  const decoder = new Decoder();
-  console.log(decoder.decompressAll(sourcemap));
-  decoder.atIndex(40, sourcemap);
-  console.log(source.substr(381, 349));
-}
-
-test();
+describe('SourceMap', () => {
+  describe('#getInstOffset()', () => {
+    it('should return a correct thingy', () => {
+      let logger = new Logger(5);
+      let contract = new Contract(null, './test/Simple.sol',
+                                  'SimpleStorage', {});
+      assert.equal(4,
+      new SourceMap(contract, logger)
+                   .getInstOffset(4).startEnd.end);
+    });
+  });
+});

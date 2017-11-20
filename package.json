@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm test",
+    "test": "mocha",
     "docgen": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose -r lib/ --destination docs/"
   },
   "repository": {
