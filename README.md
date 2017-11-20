@@ -1,6 +1,8 @@
 # ethdbg
 A Debugger for Ethereum Programming Languages
 
+[![Build Status](https://travis-ci.com/InsidiousMind/ethdbg.svg?token=Cyz989enSen8PDapyqs5&branch=master)](https://travis-ci.com/InsidiousMind/ethdbg)
+
 ### General Notes
 - TestRPC depends upon Ganache-core which depends upon ethereumjs-vm (the EVM we will be modifying with callback)
 
