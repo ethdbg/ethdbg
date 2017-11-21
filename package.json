@@ -7,10 +7,14 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mocha",
-    "docgen": "./node_modules/.bin/documentation build lib/**/** -f html -o docs",
-    "doclint": "./node_modules/.bin/documentation lint lib/**/**",
-    "testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'"
+    "test": "mocha --compilers js:babel-core/register",
+    "build": "./node_modules/.bin/babel ./lib --experimental --source-maps-inline -d ./build",
+    "docgen": "./node_modules/.bin/documentation build lib/** -f html -o dev_docs -a public -a private -g ",
+    "docgen_prod": "./node_modules/.bin/documentation build lib/**.js lib/**/**.js -f html -o prod_docs --shallow -a public",
+    "doclint": "./node_modules/.bin/documentation lint ./lib/**/*.js ./lib/*.js",
+    "docwatch": "./node_modules/.bin/documentation serve lib/*.js lib/**/*.js --shallow -a public -a private -w",
+    "testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'",
+    "flow": "./node_modules/.bin/flow"
   },
   "repository": {
     "type": "git",
@@ -23,18 +27,28 @@
   },
   "homepage": "https://github.com/InsidiousMind/ethdbg#readme",
   "dependencies": {
+    "babel-preset-flow": "^6.23.0",
     "cli-color": "^1.2.0",
     "eth-new-contract": "^0.3.0",
     "ethereumjs-util": "^5.1.2",
+    "ethereumjs-vm": "github:InsidiousMind/ethereumjs-vm#ethdbg",
+    "ganache-core": "github:InsidiousMind/ganache-core#ethdbg",
     "lodash": "^4.17.4",
     "solc": "^0.4.18",
     "web3": "^0.20.2",
     "yargs": "^10.0.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "documentation": "^5.3.3",
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1",
+    "flow-bin": "^0.59.0",
     "minami": "^1.2.3",
     "mocha": "^4.0.1"
   }
