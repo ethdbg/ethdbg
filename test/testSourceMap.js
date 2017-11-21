@@ -1,7 +1,10 @@
 const {expect} = require('chai');
 const assert = require('assert');
 const SourceMap = require('./../lib/source_map');
-const Contract = require('./../lib/contract'); const Logger = require('./../lib/logger'); const Breakpoint = require('./../lib/breakpointManager'); 
+const Contract = require('./../lib/contract');
+const Logger = require('./../lib/logger');
+const Breakpoint = require('./../lib/breakpointManager');
+
 describe('SourceMap', function() {
   describe('#getInstOffset()', function() {
     it('should return the correct line number.', function() {
