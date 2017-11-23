@@ -1,0 +1,829 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>client_lib 0.0.1 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>client_lib</h3>
+          <div class='mb1'><code>0.0.1</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#breakpoint'
+                  class="">
+                  Breakpoint
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#breakpointmanager'
+                  class="">
+                  BreakpointManager
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#contract'
+                  class=" toggle-sibling">
+                  Contract
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#contractgetrealname'
+                        class='regular pre-open'>
+                        #getRealName
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#debugger'
+                  class="">
+                  Debugger
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fork'
+                  class="">
+                  Fork
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#fork'
+                  class="">
+                  Fork
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#logger'
+                  class="">
+                  Logger
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#testrpc'
+                  class="">
+                  TestRPC
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='breakpoint'>
+      Breakpoint
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/breakpointManager.js#L10-L28'>
+      <span>lib/breakpointManager.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>breakpoint { line_num: Int, byteRange, number of instruction to get to line}</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Breakpoint(lineNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, byteRange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, instNum: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Andrew Plaza</div>
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lineNumber</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>byteRange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>instNum</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='breakpointmanager'>
+      BreakpointManager
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/breakpointManager.js#L35-L39'>
+      <span>lib/breakpointManager.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Manages Breakpoints</p>
+
+
+  <div class='pre p1 fill-light mt0'>new BreakpointManager()</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Andrew Plaza &lt;aplaza@liquidthink.net&gt;</div>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='contract'>
+      Contract
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/contract.js#L18-L142'>
+      <span>lib/contract.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Manages deploying and testing smart contracts to the testRPC
+Manages contracts with web3
+uses web3 version 0.20.0 API large changes to web3 API in v1.0.0betaX api</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Contract(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Andrew Plaza</div>
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>provider</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    (
+<a href="http://localhost:8545">http://localhost:8545</a>
+)
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>path</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    path of the contract
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of the contract
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
+	    logger object for debugging/output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    provided to the contract
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='contractgetrealname'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getRealName(name)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/contract.js#L46-L52'>
+      <span>lib/contract.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets the name of the contract without ':' preceding it</p>
+
+
+  <div class='pre p1 fill-light mt0'>getRealName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    name of contract to process
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='debugger'>
+      Debugger
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/debugger.js#L12-L88'>
+      <span>lib/debugger.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Where the magic is abstracted, and the pain goes away</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Debugger(sourceCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, contract: <a href="#contract">Contract</a>)</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Andrew Plaza &lt;aplaza@liquidthink.net&gt;</div>
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sourceCode</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    solidity Source Code in utf8
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>contract</span> <code class='quiet'>(<a href="#contract">Contract</a>)</code>
+	    Contract Object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fork'>
+      Fork
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/fork.js#L15-L123'>
+      <span>lib/fork.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Some code taken from ethereumjs/testrpc
+Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Fork(logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
+	    logger class for debug/general output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    option for testRPC
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fork'>
+      Fork
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/forkc.js#L15-L123'>
+      <span>lib/forkc.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Some code taken from ethereumjs/testrpc
+Forks a running TestRPC + blockchain. Used for access to underlying EVM</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Fork(logger: <a href="#logger">Logger</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
+	    logger class for debug/general output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    option for testRPC
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='logger'>
+      Logger
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/logger.js#L29-L91'>
+      <span>lib/logger.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This allows messages during runtime to be displayed to the programmer
+with various levels of detail. The higher the level, the more
+information you receive during runtime.</p>
+<p>Log Levels
+5 - Everything you never wanted to know about the program is displayed.
+4 - Warnings and anything worse.
+3 - General errors and all below.
+2 - critical errors and higher.
+1 - Only fatal errors.</p>
+
+
+  <div class='pre p1 fill-light mt0'>new Logger(level: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Sean Batzel</div>
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    logger level
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='testrpc'>
+      TestRPC
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/InsidiousMind/ethdbg/blob/5f399c1661142b753a2cb3a9e447fb950898a544/lib/test_rpc.js#L14-L98'>
+      <span>lib/test_rpc.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Interact with Forked TestRPC object</p>
+
+
+  <div class='pre p1 fill-light mt0'>new TestRPC(contract: <a href="#contract">Contract</a>, logger: <a href="#logger">Logger</a>)</div>
+  
+  
+
+  
+  
+  
+  <div>Author: Andrew Plaza &lt;aplaza@liquidthink.net&gt;</div>
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>contract</span> <code class='quiet'>(<a href="#contract">Contract</a>)</code>
+	    contract Object
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>logger</span> <code class='quiet'>(<a href="#logger">Logger</a>)</code>
+	    logger class
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
