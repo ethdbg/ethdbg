@@ -26,6 +26,7 @@
   "homepage": "https://github.com/InsidiousMind/ethdbg#readme",
   "dependencies": {
     "cli-color": "^1.2.0",
+    "eslint": "^4.11.0",
     "eth-new-contract": "^0.3.0",
     "ethereumjs-util": "^5.1.2",
     "ethereumjs-vm": "github:InsidiousMind/ethereumjs-vm#ethdbg",
@@ -39,7 +40,6 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "documentation": "^5.3.3",
-    "eslint": "^3.19.0",
     "eslint-config-google": "^0.9.1",
     "minami": "^1.2.3",
     "mocha": "^4.0.1"
