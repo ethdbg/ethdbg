@@ -24,13 +24,6 @@ all node provides are a few utility functions to make this possible. It also pro
 - get event information (vm.on('step'))
 - get an instance of the EVM from Ganache (ethereumjs-vm)
 
-### Communication with Rust
-
-Communicates to Rust through IPC.
-Pipes are used (Since this app will be cross-platform,
-pipes are preferred to sockets in this case as local Windows firewall may conflict with sockets)
--- Socket is used to awaken rust process from Javascript.
-
 
 ### Library Modifications
 

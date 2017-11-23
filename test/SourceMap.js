@@ -15,7 +15,7 @@ describe('SourceMap', function() {
     });
     it('should return a range which includes the linenumber.', function() {
       this.timeout(3000);
-      let logger = new Logger(5);
+      let logger = new Logger(1);
       let contract = new Contract(null, './test/Simple.sol',
         'SimpleStorage', {});
       const instResult = new SourceMap(contract, logger).getInstOffset(4);
@@ -25,7 +25,6 @@ describe('SourceMap', function() {
   });
   describe('#mapLineNums()', function() {
     it('should return a hashmap with key (num) value(obj) pairs', function() {
-      this.timeout(4000);
       let logger = new Logger(4);
       let contract = new Contract(null, './test/Simple.sol',
         'SimpleStorage', {});
@@ -42,5 +41,3 @@ describe('SourceMap', function() {
     });
   });
 });
-
-
