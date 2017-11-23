@@ -14,7 +14,6 @@ describe('SourceMap', function() {
       expect(instResult.startEnd.start.line).to.equal(7);
     });
     it('should return a range which includes the linenumber.', function() {
-      this.timeout(3000);
       let logger = new Logger(1);
       let contract = new Contract(null, './test/Simple.sol',
         'SimpleStorage', {});
