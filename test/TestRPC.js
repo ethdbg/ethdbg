@@ -12,7 +12,7 @@ describe('TestRpc', function() {
   after(function() {
     origTestRPC.kill('SIGINT');
   });
-  describe('Constructor', function() {
+  describe('#constructor()', function() {
     it('should be created with 5 properties w/o error', function() {
       const logger = new Logger(5);
       const contract = new Contract(
@@ -30,7 +30,7 @@ describe('TestRpc', function() {
       expect(testRpc).to.have.property('readyEvent');
     });
   });
-  describe('InitEvents', function() {
+  describe('#initEvents()', function() {
     it('should initialize listeners to forked process w/o error', function() {
       const logger = new Logger(5);
       const contract = new Contract(
