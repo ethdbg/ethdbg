@@ -11,4 +11,3 @@ contract SimpleStorage {
         return storedData;
     }
 }
-
