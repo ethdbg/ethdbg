@@ -3,7 +3,7 @@ const Logger = require('./../lib/logger');
 const Contract = require('./../lib/contract');
 const {fork} = require('child_process');
 const {expect} = require('chai');
-
+/*
 let origTestRPC = null;
 describe('TestRpc', function() {
   before(function() {
@@ -22,8 +22,7 @@ describe('TestRpc', function() {
         logger,
         {},
       );
-      const testRpc = new TestRPC(contract, logger);
-      expect(testRpc).to.have.property('contract');
+      const testRpc = new TestRPC(logger);
       expect(testRpc).to.have.property('forkedBlockchain');
       expect(testRpc).to.have.property('forkAddress');
       expect(testRpc).to.have.property('logger');
@@ -44,7 +43,7 @@ describe('TestRpc', function() {
       testRpc.initEvents();
     });
   });
-  /*describe('DeployContract', function() {
+  describe('DeployContract', function() {
     it('should deploy the contract and halt at the first instruction',
     function(done) {
       const logger = new Logger(5);
@@ -59,5 +58,7 @@ describe('TestRpc', function() {
       testRpc.initEvents();
       testRpc.runContract(done);
     });
-  }); */
+  });
 });
+
+*/
