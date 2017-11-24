@@ -1,16 +1,18 @@
 {
   "extends": ["eslint:recommended", "google"],
   "rules": {
-    "switch-colon-spacing": ["error", {"after": true, "before": false}]
+    // additional, per-project rules
   },
-  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
-    "allowImportExportEverywhere": true,
-    "codeFrame": false,
+    //"allowImportExportEverywhere": true,
+    //"codeFrame": false,
+    "ecmaVersion": 8
   },
   "env": {
+    "amd": true,
     "node": true,
     "mocha": true,
+    "es6": true,
   }
 }
