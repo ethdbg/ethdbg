@@ -12,10 +12,10 @@ let origTestRPC = null;
 describe('TestRpc', function() {
   before(function() {
     const logger = new Logger(5);
+    const testRPC = new TestRPC(logger);
     origTestRPC = fork('./testrpc/cli.js', [], {
       silent: true
     });
-    const testRPC = new TestRPC(logger);
   });
   after(function() {
     origTestRPC.kill('SIGINT');
@@ -29,7 +29,6 @@ describe('TestRpc', function() {
         'SimpleStorage',
         logger, {},
       );
-      //const testRpc = new TestRPC(logger);
       expect(testRpc).to.have.property('forkedBlockchain');
       expect(testRpc).to.have.property('forkAddress');
       expect(testRpc).to.have.property('logger');
