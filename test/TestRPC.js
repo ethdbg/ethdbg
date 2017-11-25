@@ -22,7 +22,7 @@ describe('TestRPC', function() {
       expect(testRPC).to.have.property('logger');
       expect(testRPC).to.have.property('sourceMap');
     });
-    it('should contain two _correct_ attributes', function() {
+    it('should contain two *correct* attributes', function() {
       let logger = new Logger(1);
       let contract = new Contract('http://localhost:8545',
         './test/Simple.sol',
