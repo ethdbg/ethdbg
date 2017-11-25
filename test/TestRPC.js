@@ -34,4 +34,18 @@ describe('TestRPC', function() {
       expect(testRPC.sourceMap).to.equal(srcmap);
     });
   });
+  describe('#runContract()', function() {
+    it('should run without crashing.', function() {
+      let logger = new Logger(1);
+      let contract = new Contract('http://localhost:8545',
+        './test/Simple.sol',
+        'SimpleStorage',
+        logger, {});
+      let srcmap = new SourceMap(logger, contract);
+      let testRPC = new TestRPC(logger, srcmap);
+      testRPC.runContract(contract, function() {
+        logger.debug('caaaaaaaaaaaaallback function.');
+      });
+    });
+  });
 });
