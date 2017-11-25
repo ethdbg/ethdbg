@@ -23,13 +23,13 @@ describe('SourceMap', function() {
     });
   });
   describe('#mapLineNums()', function() {
-    let logger = new Logger(5);
+    let logger = new Logger(1);
     let contract = new Contract(null, './test/Simple.sol',
       'SimpleStorage', {});
     const srcMap = new SourceMap(logger, contract);
     expect(srcMap.get(7)).to.deep.equal({
-      startEnd: { 
-        start: { line: 7, column: 8 }, 
+      startEnd: {
+        start: { line: 7, column: 8 },
         end: {line: 7, column: 18 },
       },
       map: { start: 107, length: 10, file: 0, jump: '-' },
@@ -38,18 +38,18 @@ describe('SourceMap', function() {
   });
   describe('#getJSONMapArray()', function() {
     it('should return an object with the same key-vals as hashmap', function() {
-      let logger = new Logger(5);
+      let logger = new Logger(1);
       let contract = new Contract(null, './test/Simple.sol',
         'SimpleStorage', {});
       const srcMap = new SourceMap(logger, contract);
       const srcMapObj = srcMap.getJSONMapArray();
       expect(srcMapObj[7][1]).to.deep.equal({
-         startEnd: { 
-          start: { line: 7, column: 8 }, 
+         startEnd: {
+          start: { line: 7, column: 8 },
           end: {line: 7, column: 18 },
         },
         map: { start: 107, length: 10, file: 0, jump: '-' },
-        offset: 8     
+        offset: 8
       });
     });
   });
