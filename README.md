@@ -39,3 +39,4 @@ Modifications to Ganache-Core:
 
 Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
 `source_map_decoder.js`, and `util.js` we modified for use in this project.
+- make all classes be 'logger first'. IE, the logger should always be the first parameter to the class constructor
