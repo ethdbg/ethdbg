@@ -1,6 +1,7 @@
 const TestRPC = require('./../lib/test_rpc');
 const Logger = require('./../lib/logger');
 const Contract = require('./../lib/contract');
+const SourceMap = require('./../lib/source_map');
 const {
   fork
 } = require('child_process');
@@ -8,57 +9,30 @@ const {
   expect
 } = require('chai');
 
-let origTestRPC = null;
-describe('TestRpc', function() {
-  before(function() {
-    const logger = new Logger(5);
-    const testRPC = new TestRPC(logger);
-    origTestRPC = fork('./testrpc/cli.js', [], {
-      silent: true
-    });
-  });
-  after(function() {
-    origTestRPC.kill('SIGINT');
-  });
+
+describe('TestRPC', function() {
   describe('#constructor()', function() {
-    it('should be created with 5 properties w/o error', function() {
-      const logger = new Logger(5);
-      const contract = new Contract(
-        'http://localhost:8546',
+    it('should contain two attributes', function() {
+      let logger = new Logger(1);
+      let contract = new Contract('http://localhost:8545',
         './test/Simple.sol',
         'SimpleStorage',
-        logger, {},
-      );
-      expect(testRpc).to.have.property('forkedBlockchain');
-      expect(testRpc).to.have.property('forkAddress');
-      expect(testRpc).to.have.property('logger');
-      expect(testRpc).to.have.property('readyEvent');
+        logger, {});
+      let srcmap = new SourceMap(logger, contract);
+      let testRPC = new TestRPC(logger, srcmap);
+      expect(testRPC).to.have.property('logger');
+      expect(testRPC).to.have.property('sourceMap');
     });
-    it('should initialize listeners to forked process w/o error', function() {
-      const logger = new Logger(5);
-      const contract = new Contract(
-        'http://localhost:8546',
+    it('should contain two _correct_ attributes', function() {
+      let logger = new Logger(1);
+      let contract = new Contract('http://localhost:8545',
         './test/Simple.sol',
         'SimpleStorage',
-        logger, {},
-      );
-      //const testRpc = new TestRPC(contract, logger);
-      testRpc.initEvents();
+        logger, {});
+      let srcmap = new SourceMap(logger, contract);
+      let testRPC = new TestRPC(logger, srcmap);
+      expect(testRPC.logger).to.equal(logger);
+      expect(testRPC.sourceMap).to.equal(srcmap);
     });
-    it('should deploy the contract and halt at the first instruction',
-      function(done) {
-        const logger = new Logger(5);
-        const contract = new Contract(
-          'http://localhost:8546',
-          './test/Simple.sol',
-          'SimpleStorage',
-          logger, {},
-        );
-        //const testRpc = new TestRPC(contract, logger);
-        testRpc.initEvents();
-        testRpc.runContract(done, () => {
-          logger.debug("Contract tested.");
-        });
-      });
   });
 });
