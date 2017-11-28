@@ -23,7 +23,7 @@ describe('SourceMap', function() {
     });
   });
   describe('#mapLineNums()', function() {
-    let logger = new Logger(4);
+    let logger = new Logger(5);
     let contract = new Contract(null, './test/Simple.sol',
       'SimpleStorage', {});
     const srcMap = new SourceMap(logger, contract);
@@ -38,7 +38,7 @@ describe('SourceMap', function() {
   });
   describe('#getJSONMapArray()', function() {
     it('should return an object with the same key-vals as hashmap', function() {
-      let logger = new Logger(4);
+      let logger = new Logger(5);
       let contract = new Contract(null, './test/Simple.sol',
         'SimpleStorage', {});
       const srcMap = new SourceMap(logger, contract);
