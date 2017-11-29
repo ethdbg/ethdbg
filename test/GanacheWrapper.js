@@ -1,13 +1,10 @@
 const GanacheWrapper = require('./../lib/ganache_wrapper');
 const Logger = require('./../lib/logger');
-const Contract = require('./../lib/contract');
-const SourceMap = require('./../lib/source_map');
-const {fork} = require('child_process');
 const {expect} = require('chai');
-const {sleep} = require('./../lib/utils');
 
 // TODO going to have to fork testRPC instance in order to test kill
 describe('GanacheWrapper', function() {
+  /* TODO: Design mock web3 API
   let cli;
   before(async function() {
     this.timeout(4000);
@@ -17,73 +14,39 @@ describe('GanacheWrapper', function() {
   after(function() {
     cli.kill();
   });
+  */
   // TODO: write test for options
   describe('#constructor()', function() {
     it('should create a class with three attributes', function() {
       let logger = new Logger(1);
-      let contract = new Contract('http://localhost:8545',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {});
-      let srcmap = new SourceMap(logger, contract);
-      let testRPC = new GanacheWrapper(logger, srcmap);
-      expect(testRPC).to.have.property('server');
+      let testRPC = new GanacheWrapper(logger);
       expect(testRPC).to.have.property('state');
       expect(testRPC).to.have.property('web3');
+      expect(testRPC).to.have.property('options');
     });
     it('should create a child class with four attributes from parent',
       function() {
         let logger = new Logger(1);
-        let contract = new Contract('http://localhost:8545',
-          './test/Simple.sol',
-          'SimpleStorage',
-          logger, {});
-        let srcmap = new SourceMap(logger, contract);
-        let testRPC = new GanacheWrapper(logger, srcmap);
+        let testRPC = new GanacheWrapper(logger);
         expect(testRPC).to.have.property('hostAddress');
         expect(testRPC).to.have.property('forkAddress');
         expect(testRPC).to.have.property('logger');
-        expect(testRPC).to.have.property('sourceMap');
+        expect(testRPC).to.have.property('server');
     });
-    it('should contain two *correct* attributes', function() {
+    it('should contain one *correct* attribute', function() {
       let logger = new Logger(1);
-      let contract = new Contract('http://localhost:8545',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {});
-      let srcmap = new SourceMap(logger, contract);
-      let testRPC = new GanacheWrapper(logger, srcmap);
-      expect(testRPC.logger).to.equal(logger);
-      expect(testRPC.sourceMap).to.equal(srcmap);
+      let testRPC = new GanacheWrapper(logger);
+      expect(testRPC.logger).to.eql(logger);
     });
   });
   describe('#init()', function() {
-    it('should create a server without error', async function() {
-      const logger = new Logger(1);
-      const contract = new Contract(
-        'http://localhost:8546',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {},
-      );
-      const srcmap = new SourceMap(logger, contract);
-      const testRPC = new GanacheWrapper(logger, srcmap, {});
-      await testRPC.init();
-    });
+    it('should create a server without error');
   });
   describe('#parseAddress()', function() {
-    it('should parse the address with @ correctly', function() {
+    it('should parse address correctly into two strings', function() {
       const logger = new Logger(1);
-      const contract = new Contract(
-        'http://localhost:8546',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {},
-      );
-      const srcmap = new SourceMap(logger, contract);
       const testRPC = new GanacheWrapper(
         logger,
-        srcmap,
         {fork: 'http://localhost:0000@123'}
       );
       testRPC.parseAddress();
@@ -93,16 +56,8 @@ describe('GanacheWrapper', function() {
     });
     it('should increase the port by 1', function() {
       const logger = new Logger(1);
-      const contract = new Contract(
-        'http://localhost:8546',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {},
-      );
-      const srcmap = new SourceMap(logger, contract);
       const testRPC = new GanacheWrapper(
         logger,
-        srcmap,
         {fork: 'http://localhost:8545'}
       );
       testRPC.parseAddress();
@@ -110,16 +65,8 @@ describe('GanacheWrapper', function() {
     });
     it('should return block number', function() {
       const logger = new Logger(1);
-      const contract = new Contract(
-        'http://localhost:8546',
-        './test/Simple.sol',
-        'SimpleStorage',
-        logger, {},
-      );
-      const srcmap = new SourceMap(logger, contract);
       const testRPC = new GanacheWrapper(
         logger,
-        srcmap,
         {fork: 'http://localhost:0000@123'}
       );
       const block = testRPC.parseAddress();
