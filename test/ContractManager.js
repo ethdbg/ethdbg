@@ -61,6 +61,12 @@ describe('ContractManager', function() {
       cManager.addByContract(contract);
       expect(cManager.get(contract.name)).to.eql(contract);
     });
+    it('should throw an error if contract does not exist', function() {
+      const logger = new Logger(1);
+      const cManager = new ContractManager(logger);
+      expect(cManager.get.bind(cManager, '🤔 : 🤔 DNE4SURE'))
+        .to.throw('Contract does not exist in HashMap');
+    });
   });
   describe('#getBySource(srcFPath: string)', function() {
     it('should get contracts that belong to a source file', function() {
@@ -80,7 +86,7 @@ describe('ContractManager', function() {
       function() {
         const logger = new Logger(1);
         const cManager = new ContractManager(logger);
-        expect(cManager.normalize('SimpleStorage').to.equal('SimpleStorage'));
+        expect(cManager.normalize('SimpleStorage')).to.equal('SimpleStorage');
     });
   });
   describe('#getContracts()', function() {
