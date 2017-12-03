@@ -35,7 +35,7 @@ Modifications to Ganache-Core:
 
 
 ### General TODO:
-- edit code to follow new eslint style (google style + eslint rec)
+- cleanup README/documentation old unecessary files
 
 Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
 `source_map_decoder.js`, and `util.js` we modified for use in this project.
