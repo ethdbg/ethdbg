@@ -34,6 +34,8 @@
     "ganache-core": "github:InsidiousMind/ganache-core#ethdbg",
     "hashmap": "^2.3.0",
     "lodash": "^4.17.4",
+    "remix-core": "0.0.3",
+    "remix-lib": "0.0.4",
     "solc": "^0.4.18",
     "truffle-contract": "^3.0.1",
     "web3": "^0.20.2",
