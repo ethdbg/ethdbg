@@ -7,12 +7,10 @@ const Logger = require('./lib/logger');
 
 const logger = new Logger(5);
 const cManager = new ContractManager(logger);
-cManager.add('./examples/example_solidity/simple_add.sol');
-
+cManager.add('./examples/example_solidity/simple.sol');
 let simple_storage = cManager.get('SimpleStorage');
-let test = cManager.get('Test');
+console.log(simple_storage);
 
-console.log(simple_storage.getRuntimeBytecode());
 
 
 /*
