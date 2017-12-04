@@ -11,11 +11,18 @@ cd ../ganache-core/
 rm package-lock.json
 git pull origin master
 cd ..
-rm pacakge-lock.json
+rm package-lock.json
 npm install &&
 cd ganache-core/ &&
 npm install &&
 cd ../ethereumjs-vm &&
 npm install
 cd ../testrpc &&
+npm install &&
+cd .. &&
+npm install vscode
+npm install eslint
 npm install
+npm run docgen
+npm run docgen_prod
+npm test
