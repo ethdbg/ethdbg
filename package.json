@@ -45,6 +45,7 @@
     "documentation": "^5.3.3",
     "eslint-config-google": "^0.9.1",
     "minami": "^1.2.3",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "web3-fake-provider": "^0.1.0"
   }
 }

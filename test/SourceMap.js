@@ -2,6 +2,7 @@ const {expect} = require('chai');
 const SourceMap = require('./../lib/source_map');
 const Contract = require('./../lib/contract');
 const Logger = require('./../lib/logger');
+const MockWeb3 = require('web3-fake-provider');
 
 describe('SourceMap', function() {
   describe('#getInstOffset()', function() {
@@ -20,6 +21,19 @@ describe('SourceMap', function() {
         .getInstOffset(4);
       expect(instResult.startEnd.start.line).below(4);
       expect(instResult.startEnd.end.line).above(4);
+    });
+  });
+  describe('#getSourceLocationFromInsIndex', function() {
+    it('should return the source location with a given index', function() {
+      const provider = new MockWeb3();
+      const logger = new Logger(1);
+      const srcmap = new SourceMap(logger, 'SimpleStorage',
+        {path: './test/Simple.sol'}
+      );
+      srcmap.deploy(provider);
+      console.log(srcmap.contract);
+      const instResult = srcmap.getSourceLocationFromInsIndex();
+      console.log(instResult);
     });
   });
   describe('#mapLineNums()', function() {
