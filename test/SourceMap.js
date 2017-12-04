@@ -24,17 +24,10 @@ describe('SourceMap', function() {
     });
   });
   describe('#getSourceLocationFromInsIndex', function() {
-    it('should return the source location with a given index', function() {
-      const provider = new MockWeb3();
-      const logger = new Logger(1);
-      const srcmap = new SourceMap(logger, 'SimpleStorage',
-        {path: './test/Simple.sol'}
-      );
-      srcmap.deploy(provider);
-      console.log(srcmap.contract);
-      const instResult = srcmap.getSourceLocationFromInsIndex();
-      console.log(instResult);
-    });
+    it('should return the source location with a given index');
+  });
+  describe('#getSourceLocationFromPC', function() {
+    it('should return the source location associated with the PC');
   });
   describe('#mapLineNums()', function() {
     let logger = new Logger(1);
