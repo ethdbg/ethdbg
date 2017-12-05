@@ -2,6 +2,12 @@
 A Debugger for Ethereum Programming Languages
 
 [![Build Status](https://travis-ci.com/InsidiousMind/ethdbg.svg?token=Cyz989enSen8PDapyqs5&branch=master)](https://travis-ci.com/InsidiousMind/ethdbg)
+### What is Ethereum Debug?
+The Ethereum debug library is a fast, event-driven, multi-process debugging library which gives the developers the functionality
+they need to create a debugger.
+Our Debuggers: 
+- VSCode ethdbg Extension <Link to VSCode extension>
+- Reference CLI Debugger (inspired by gdb) <Link To Reference Implementation>
 
 ### General Notes
 - TestRPC depends upon Ganache-core which depends upon ethereumjs-vm (the EVM we will be modifying with callback)
@@ -10,40 +16,32 @@ The frontend for the debugger is written in NodeJS. This is done for tighter int
 
 
 The debug process looks like:
+- (you) Set breakpoints in Solidity Code
+- (you) Drop into 'Debug' mode, which, redirecting your contracts to be deployed to custom TestRPC(change provider to 8546)
+- (we) Fork your(8545) TestRPC or create a new TestRPC with slightly modified testRPC + EVM, allowing for custom debug functionality
+- (you) Run your tests
+- when a breakpoint is hit, the execution of the EVM is frozen and you can inspect variables, stack, memory, etc
+- (you) step in, step out, continue, etc
+- (we) match up the EVM Bytecode to your source code, in EVM or through the reference CLI debugger interface
+- (you) are able to debug your smart contracts!
 
-- Fork TestRPC with slightly modified testRPC + EVM, allowing for custom callback function
-- once transaction which set off contract into action is made, a callback is triggered upon the first 'step' into this transaction (using EVM vm.on('step') event).
-- this callback triggers node code that falls into the Rust EthDbg library
-
-all node provides are a few utility functions to make this possible. It also provides an easy-to-use interface most programmers are comfortable with, rather than learning Rust.
-
-
-### Actions that client library provides (for rust):
-
-- Fork running testRPC
-- get event information (vm.on('step'))
-- get an instance of the EVM from Ganache (ethereumjs-vm)
-
-
-### Library Modifications
-
-All modified client libraries are kept up to date with upstream.
-
-Modifications to Ganache-Core:
-- added forked (https://github.com/InsidiousMind/ethereumjs-vm) ethereumjs-vm to dependency
-  - allows freezing execution of VM if needbe. For debugging purposes.
-
+### Actions that client library provides:
+- Step in, Step Out, Deploy Smart Contracts, Run Solidity Code, set Breakpoints, get Breakpoints
+- API Docs: <Link To API Documentation>
 
 ### General TODO:
 - cleanup README/documentation old unecessary files
 - add examples of using the functions provided
 - make sure docstrings are all correct, and formatted nicely
 
+### This Wouldn't Happen without:
 Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
 `source_map_decoder.js`, and `util.js` we modified for use in this project.
 - make all classes be 'logger first'. IE, the logger should always be the first parameter to the class constructor
+- Thanks to the people who created the Remix IDE, for providing some tools necessary to create this debugger
 
-
+### How To Contribute
+- Read the Contribution Guidelines <Link to Contribution Guidelines Here>
 
 If you would like to donate to this project and support the contributors,
 please send your ETH or ERC20 tokens to `insidious.eth`
