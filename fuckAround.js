@@ -4,13 +4,18 @@ const solc = require('solc');
 const fs = require('fs');
 const ContractManager = require('./lib/contract_manager');
 const Logger = require('./lib/logger');
+const simple = './examples/example_solidity/simple.sol';
+const source = fs.readFileSync(simple, 'utf8');
+console.log(solc.compile(source, 1));
 
+
+/*
 const logger = new Logger(5);
 const cManager = new ContractManager(logger);
 cManager.add('./examples/example_solidity/simple.sol');
 let simple_storage = cManager.get('SimpleStorage');
 console.log(simple_storage);
-
+*/
 
 
 /*
