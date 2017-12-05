@@ -36,6 +36,8 @@ Modifications to Ganache-Core:
 
 ### General TODO:
 - cleanup README/documentation old unecessary files
+- add examples of using the functions provided
+- make sure docstrings are all correct, and formatted nicely
 
 Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
 `source_map_decoder.js`, and `util.js` we modified for use in this project.
