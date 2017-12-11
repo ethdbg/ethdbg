@@ -2,7 +2,7 @@
   "name": "client_lib",
   "version": "0.0.1",
   "description": "client lib",
-  "main": "lib/fork.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
@@ -29,6 +29,7 @@
     "cli-color": "^1.2.0",
     "eslint": "^4.12.1",
     "eth-new-contract": "^0.3.0",
+    "ethereum-remix": "0.0.4",
     "ethereumjs-util": "^5.1.2",
     "hashmap": "^2.3.0",
     "lodash": "^4.17.4",
@@ -36,7 +37,7 @@
     "remix-lib": "0.0.4",
     "solc": "^0.4.18",
     "truffle-contract": "^3.0.1",
-    "vscode": "^1.1.9",
+    "vscode": "^1.1.10",
     "web3": "^0.20.2",
     "wu": "^2.1.0",
     "yargs": "^10.0.3"
