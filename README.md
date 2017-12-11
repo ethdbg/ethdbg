@@ -18,7 +18,7 @@ The frontend for the debugger is written in NodeJS. This is done for tighter int
 The debug process looks like:
 - (you) Set breakpoints in Solidity Code
 - (you) Drop into 'Debug' mode, which, redirecting your contracts to be deployed to custom TestRPC(change provider to 8546)
-- (we) Fork your(8545) TestRPC or create a new TestRPC with slightly modified testRPC + EVM, allowing for custom debug functionality
+- (we) Fork your(8545) TestRPC or create a new TestRPC testRPC + EVM, allowing for custom debug functionality
 - (you) Run your tests
 - when a breakpoint is hit, the execution of the EVM is frozen and you can inspect variables, stack, memory, etc
 - (you) step in, step out, continue, etc
