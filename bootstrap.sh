@@ -19,10 +19,4 @@ cd ../ethereumjs-vm &&
 npm install
 cd ../testrpc &&
 npm install &&
-cd .. &&
-npm install vscode
-npm install eslint
-npm install
-npm run docgen
-npm run docgen_prod
-npm test
+cd ..
