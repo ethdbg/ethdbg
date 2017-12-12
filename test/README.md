@@ -7,3 +7,6 @@
 
 
 Create a new file for every class being tested
+
+TODO: write tests for all functions which do not have tests
+  - P.S that may be alot

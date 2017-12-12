@@ -27,7 +27,7 @@ describe('ContractManager', function() {
       const logger = new Logger(1);
       const cManager = new ContractManager(logger);
       cManager.add('./test/Simple.sol');
-      expect(cManager.has('SimpleStorage')).to.equal(true);
+      expect(cManager.has({name: 'SimpleStorage'})).to.equal(true);
     });
   });
   describe('#addByContract(contract: Contract)', function() {
@@ -40,7 +40,7 @@ describe('ContractManager', function() {
       );
       const cManager = new ContractManager(logger);
       cManager.addByContract(contract);
-      expect(cManager.has(contract.name)).to.equal(true);
+      expect(cManager.has({name: contract.name})).to.equal(true);
     });
   });
   describe('#get(contractName: string)', function() {
@@ -102,7 +102,7 @@ describe('ContractManager', function() {
       const cManager = new ContractManager(logger);
       cManager.add('./test/Simple.sol');
       cManager.remove('SimpleStorage');
-      expect(cManager.has('SimpleStorage')).to.equal(false);
+      expect(cManager.has({name:'SimpleStorage'})).to.equal(false);
     });
   });
   describe('#removeBySource(srcFPath: string)', function() {
@@ -111,7 +111,7 @@ describe('ContractManager', function() {
       const cManager = new ContractManager(logger);
       cManager.add('./test/Simple.sol');
       cManager.removeBySource('./test/Simple.sol');
-      expect(cManager.has('SimpleStorage')).to.equal(false);
+      expect(cManager.has({name:'SimpleStorage'})).to.equal(false);
     });
   });
   describe('#has(contractName)', function() {
@@ -119,12 +119,12 @@ describe('ContractManager', function() {
       const logger = new Logger(1);
       const cManager = new ContractManager(logger);
       cManager.add('./test/Simple.sol');
-      expect(cManager.has('SimpleStorage')).to.equal(true);
+      expect(cManager.has({name:'SimpleStorage'})).to.equal(true);
     });
     it('should return false if the contract does not exist', function() {
       const logger = new Logger(1);
       const cManager = new ContractManager(logger);
-      expect(cManager.has('SimpleStorage')).to.equal(false);
+      expect(cManager.has({name:'SimpleStorage'})).to.equal(false);
     });
   });
 });

@@ -7,3 +7,6 @@ node_modules/
 lib/.node-xmlhttprequest*
 docs/
 build/
+prod_docs/
+dev_docs/
+package-lock.json

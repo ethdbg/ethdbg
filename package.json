@@ -2,7 +2,7 @@
   "name": "client_lib",
   "version": "0.0.1",
   "description": "client lib",
-  "main": "lib/fork.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
@@ -27,15 +27,19 @@
   "dependencies": {
     "bignumber.js": "^4.1.0",
     "cli-color": "^1.2.0",
-    "eslint": "^4.12.0",
+    "eslint": "^4.12.1",
     "eth-new-contract": "^0.3.0",
+    "ethereum-remix": "0.0.4",
     "ethereumjs-util": "^5.1.2",
-    "ethereumjs-vm": "github:InsidiousMind/ethereumjs-vm#ethdbg",
-    "ganache-core": "github:InsidiousMind/ganache-core#ethdbg",
+    "ethereumjs-vm": "^2.3.2",
+    "ganache-core": "^2.0.2",
     "hashmap": "^2.3.0",
     "lodash": "^4.17.4",
+    "remix-core": "0.0.3",
+    "remix-lib": "0.0.4",
     "solc": "^0.4.18",
     "truffle-contract": "^3.0.1",
+    "vscode": "^1.1.10",
     "web3": "^0.20.2",
     "wu": "^2.1.0",
     "yargs": "^10.0.3"
@@ -45,6 +49,7 @@
     "documentation": "^5.3.3",
     "eslint-config-google": "^0.9.1",
     "minami": "^1.2.3",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "web3-fake-provider": "^0.1.0"
   }
 }

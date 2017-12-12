@@ -11,11 +11,12 @@ cd ../ganache-core/
 rm package-lock.json
 git pull origin master
 cd ..
-rm pacakge-lock.json
+rm package-lock.json
 npm install &&
 cd ganache-core/ &&
 npm install &&
 cd ../ethereumjs-vm &&
 npm install
 cd ../testrpc &&
-npm install
+npm install &&
+cd ..
