@@ -5,10 +5,7 @@ const fs = require('fs');
 const ContractManager = require('./lib/contract_manager');
 const Contract = require('./lib/contract');
 const Logger = require('./lib/logger');
-const simple = './examples/example_solidity/simple.sol';
-const source = fs.readFileSync(simple, 'utf8');
 const Web3 = require('web3');
-console.log(solc.compile(source, 1));
 
 
 /*
@@ -31,9 +28,8 @@ console.log(simple_storage);
  *  - deploy contract to our TestRPC
  */
 async function test() {
-  const contract_path = './examples/example_solidity/simple.sol';
-  let logger = new Logger(5);
-  let contract = new Contract(logger, 'SimpleStorage', {path: contract_path});
-  let result = await contract.deploy();
-  let web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
-}
+  const simple = './examples/example_solidity/greeter.sol';
+  const source = fs.readFileSync(simple, 'utf8');
+  const compiledSource = solc.compile(source, 1);
+  console.log(compiledSource);
+} test();
