@@ -29,6 +29,11 @@ The debug process looks like:
 - Step in, Step Out, Deploy Smart Contracts, Run Solidity Code, set Breakpoints, get Breakpoints
 - API Docs: <Link To API Documentation>
 
+### Generating Documentation
+- to generate developer documentation (including private classes) `npm run docgen`
+- to generate documentation for use as debug library, `npm run docgen_prod`
+
+
 ### General TODO:
 - cleanup README/documentation old unecessary files
 - add examples of using the functions provided
