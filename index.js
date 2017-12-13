@@ -2,4 +2,5 @@
 
 const Debugger = require('./lib/debugger');
 
-exports.Debugger = Debugger;
+module.exports = Debugger;
+exports.default = Debugger;
