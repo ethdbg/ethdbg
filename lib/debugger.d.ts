@@ -1,23 +1,23 @@
 export default class Debugger {
 
-    constructor(options: Object);
+  constructor(options: Object);
 
-    getContext(): Object;
+  getContext(): Object;
 
-    add(options: Object): Debugger;
+  add(options: Object): Debugger;
 
-    async start(): Debugger;
+  async start(): Promise<Debugger>;
 
-    toggleBreakpoint(name: string, lineNumber: number): Debugger;
+  toggleBreakpoint(name: string, lineNumber: number): Debugger;
 
-    stepInto(): Debugger;
+  stepInto(): Debugger;
 
-    next(): Debugger;
+  next(): Debugger;
 
-    async hitBreakpoint(evObj: Object): void;
+  async hitBreakpoint(evObj: Object): Promise<Debugger>;
 
-    events(): void;
+  events(): void;
 
-    async trackCode(addr: string): boolean | Contract | undefined;
+  async trackCode(addr: string): Promise<boolean> | Promise<Contract>;
 
 }
