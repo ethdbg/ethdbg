@@ -21,11 +21,16 @@ contract greeter is mortal {
     /* Main function */
     function greet() constant returns (string) {
         uint x;
+        uint y;
+        uint z;
+        uint a;
+        uint b;
         x = 230;
-        uint y = 4;
-        uint z = x + y;
-        uint a = x * y;
-        uint b = x / y;
+        y = 4;
+        z = x + y;
+        a = x * y;
+        b = x / y;
+        b = a - 10;
         return greeting;
     }
 }
