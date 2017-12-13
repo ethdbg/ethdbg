@@ -1,6 +1,6 @@
 export default class Debugger {
 
-    constructor(options: Object): void;
+    constructor(options: Object);
 
     getContext(): Object;
 
