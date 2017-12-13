@@ -6,7 +6,7 @@ export default class Debugger {
 
   add(options: Object): Debugger;
 
-  async start(): Promise<Debugger>;
+  start(): Promise<Debugger>;
 
   toggleBreakpoint(name: string, lineNumber: number): Debugger;
 
@@ -14,10 +14,10 @@ export default class Debugger {
 
   next(): Debugger;
 
-  async hitBreakpoint(evObj: Object): Promise<Debugger>;
+  hitBreakpoint(evObj: Object): Promise<Debugger>;
 
   events(): void;
 
-  async trackCode(addr: string): Promise<boolean> | Promise<Contract>;
+  trackCode(addr: string): Promise<boolean> | Promise<Contract>;
 
 }
