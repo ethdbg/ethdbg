@@ -1,10 +1,11 @@
 import Contract from './contract';
+import Context from './context';
 
 export default class Debugger {
 
   constructor(options: Object);
 
-  getContext(): Object;
+  getContext(): Context;
 
   add(options: Object): Debugger;
 
