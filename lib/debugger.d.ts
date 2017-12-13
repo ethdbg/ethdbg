@@ -1,3 +1,5 @@
+import { Contract } from './contract';
+
 export default class Debugger {
 
   constructor(options: Object);
