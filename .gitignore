@@ -4,6 +4,7 @@ Cargo.lock
 client_lib/node_modules/
 node_modules/
 .idea/
+.vscode/
 lib/.node-xmlhttprequest*
 docs/
 build/
