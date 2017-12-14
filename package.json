@@ -18,7 +18,16 @@
     "type": "git",
     "url": "git+https://github.com/InsidiousMind/ethdbg.git"
   },
-  "author": "Andrew Plaza",
+  "author": {
+    "name": "Andrew Plaza",
+    "email": "aplaza@liquidthink.net",
+    "url": "http://code.liquidthink.net"
+  },
+  "contributors": [
+    "Sean Batzel",
+    "email": "unknown",
+    "url": "unknown"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/InsidiousMind/ethdbg/issues"
