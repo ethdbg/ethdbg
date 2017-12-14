@@ -38,6 +38,7 @@ The debug process looks like:
 - cleanup README/documentation old unecessary files
 - add examples of using the functions provided
 - make sure docstrings are all correct, and formatted nicely
+- move typescript declarations to seperate file
 
 ### This Wouldn't Happen without:
 Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
