@@ -27,9 +27,22 @@ console.log(simple_storage);
  *  - from line number, can get the specific contract name
  *  - deploy contract to our TestRPC
  */
+/*
 async function test() {
   const simple = './examples/example_solidity/greeter.sol';
   const source = fs.readFileSync(simple, 'utf8');
   const compiledSource = solc.compile(source, 1);
   console.log(compiledSource);
 } test();
+*/
+
+
+function trimRight(str) {
+  return str.replace(/[0]+|[0]+$/g , '');
+}
+
+function test() {
+  const string = 'randomData00000000000000';
+  console.log(trimRight(string));
+} test();
+
