@@ -1,5 +1,5 @@
 {
-	"name": "client_lib",
+	"name": "Ethereum Debug",
 	"version": "0.0.1",
 	"description": "client lib",
 	"main": "index.js",
