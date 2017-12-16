@@ -1,5 +1,5 @@
 {
-	"name": "Ethereum Debug",
+	"name": "ethdbg",
 	"version": "0.0.1",
 	"description": "client lib",
 	"main": "index.js",
@@ -38,6 +38,7 @@
 	"dependencies": {
 		"bignumber.js": "^4.1.0",
 		"cli-color": "^1.2.0",
+		"dargs": "^5.1.0",
 		"eslint": "^4.12.1",
 		"eth-new-contract": "^0.3.0",
 		"ethereum-remix": "0.0.4",
@@ -46,6 +47,7 @@
 		"ganache-core": "^2.0.2",
 		"hashmap": "^2.3.0",
 		"lodash": "^4.17.4",
+		"minimist": "^1.2.0",
 		"pino": "^4.10.2",
 		"remix-core": "0.0.3",
 		"remix-lib": "0.0.4",

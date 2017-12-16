@@ -42,7 +42,7 @@ function trimRight(str) {
 }
 
 function test() {
-  const string = 'randomData00000000000000';
-  console.log(trimRight(string));
+  const string = 'lol';
+  console.log(typeof string === 'string');
 } test();
 
