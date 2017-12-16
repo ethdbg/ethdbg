@@ -1,65 +1,67 @@
 {
-  "name": "client_lib",
-  "version": "0.0.1",
-  "description": "client lib",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "mocha",
-    "docgen": "./node_modules/.bin/documentation build lib/** -f html -o dev_docs -a public -a private -g ",
-    "docgen_prod": "./node_modules/.bin/documentation build lib/**.js lib/**/**.js -f html -o prod_docs --shallow -a public",
-    "doclint": "./node_modules/.bin/documentation lint ./lib/**/*.js ./lib/*.js",
-    "docwatch": "./node_modules/.bin/documentation serve lib/*.js lib/**/*.js --shallow -a public -a private -w",
-    "testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/InsidiousMind/ethdbg.git"
-  },
-  "author": {
-    "name": "Andrew Plaza",
-    "email": "aplaza@liquidthink.net",
-    "url": "http://code.liquidthink.net"
-  },
-  "contributors": [
-    "Sean Batzel",
-    "email": "unknown",
-    "url": "unknown"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/InsidiousMind/ethdbg/issues"
-  },
-  "homepage": "https://github.com/InsidiousMind/ethdbg#readme",
-  "dependencies": {
-    "bignumber.js": "^4.1.0",
-    "cli-color": "^1.2.0",
-    "eslint": "^4.12.1",
-    "eth-new-contract": "^0.3.0",
-    "ethereum-remix": "0.0.4",
-    "ethereumjs-util": "^5.1.2",
-    "ethereumjs-vm": "^2.3.2",
-    "ganache-core": "^2.0.2",
-    "hashmap": "^2.3.0",
-    "lodash": "^4.17.4",
-    "pino": "^4.10.2",
-    "remix-core": "0.0.3",
-    "remix-lib": "0.0.4",
-    "solc": "^0.4.18",
-    "truffle-contract": "^3.0.1",
-    "vscode": "^1.1.10",
-    "web3": "^0.20.2",
-    "wu": "^2.1.0",
-    "yargs": "^10.0.3"
-  },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "documentation": "^5.3.3",
-    "eslint-config-google": "^0.9.1",
-    "minami": "^1.2.3",
-    "mocha": "^4.0.1",
-    "web3-fake-provider": "^0.1.0"
-  }
+	"name": "client_lib",
+	"version": "0.0.1",
+	"description": "client lib",
+	"main": "index.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"test": "mocha",
+		"docgen": "./node_modules/.bin/documentation build lib/** -f html -o dev_docs -a public -a private -g ",
+		"docgen_prod": "./node_modules/.bin/documentation build lib/**.js lib/**/**.js -f html -o prod_docs --shallow -a public",
+		"doclint": "./node_modules/.bin/documentation lint ./lib/**/*.js ./lib/*.js",
+		"docwatch": "./node_modules/.bin/documentation serve lib/*.js lib/**/*.js --shallow -a public -a private -w",
+		"testbench": "mocha | ts '[%Y-%m-%d %H:%M:%.S]'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/InsidiousMind/ethdbg.git"
+	},
+	"author": {
+		"name": "Andrew Plaza",
+		"email": "aplaza@liquidthink.net",
+		"url": "http://code.liquidthink.net"
+	},
+	"contributors": [
+		{
+			"name": "Sean Batzel",
+			"email": "romulus108@protonmail.com",
+			"url": "romulus10.github.io"
+		}
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/InsidiousMind/ethdbg/issues"
+	},
+	"homepage": "https://github.com/InsidiousMind/ethdbg#readme",
+	"dependencies": {
+		"bignumber.js": "^4.1.0",
+		"cli-color": "^1.2.0",
+		"eslint": "^4.12.1",
+		"eth-new-contract": "^0.3.0",
+		"ethereum-remix": "0.0.4",
+		"ethereumjs-util": "^5.1.2",
+		"ethereumjs-vm": "^2.3.2",
+		"ganache-core": "^2.0.2",
+		"hashmap": "^2.3.0",
+		"lodash": "^4.17.4",
+		"pino": "^4.10.2",
+		"remix-core": "0.0.3",
+		"remix-lib": "0.0.4",
+		"solc": "^0.4.18",
+		"truffle-contract": "^3.0.1",
+		"vscode": "^1.1.10",
+		"web3": "^0.20.2",
+		"wu": "^2.1.0",
+		"yargs": "^10.0.3"
+	},
+	"devDependencies": {
+		"chai": "^4.1.2",
+		"documentation": "^5.3.3",
+		"eslint-config-google": "^0.9.1",
+		"minami": "^1.2.3",
+		"mocha": "^4.0.1",
+		"web3-fake-provider": "^0.1.0"
+	}
 }
