@@ -1,7 +1,7 @@
 const Logger = require('./../lib/logger');
 const REPL = require('./../lib/repl');
 const GanacheWrapper = require('./../lib/ganache_wrapper');
-const {events} = require('./types');
+const {events} = require('./../lib/types');
 
 
 describe('REPL', function () {
