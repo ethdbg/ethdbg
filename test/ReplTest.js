@@ -1,6 +1,7 @@
 const Logger = require('./../lib/logger');
 const REPL = require('./../lib/repl');
 const GanacheWrapper = require('./../lib/ganache_wrapper');
+const {expect} = require('chai');
 
 
 describe('REPL', function () {
