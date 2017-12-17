@@ -39,7 +39,7 @@
 		"bignumber.js": "^4.1.0",
 		"cli-color": "^1.2.0",
 		"dargs": "^5.1.0",
-		"eslint": "^4.12.1",
+		"eslint": "^4.13.1",
 		"eth-new-contract": "^0.3.0",
 		"ethereum-remix": "0.0.4",
 		"ethereumjs-util": "^5.1.2",

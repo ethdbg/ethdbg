@@ -1,3 +1,4 @@
+/* These tests have been removed.
 const TestRPC = require('./../lib/test_rpc');
 const Logger = require('./../lib/logger');
 const Contract = require('./../lib/contract');
@@ -21,3 +22,4 @@ describe('TestRPC', function() {
     });
   });
 });
+*/
