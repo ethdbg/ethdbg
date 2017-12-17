@@ -1,7 +1,7 @@
 const {spawn} = require('child_process');
 const dargs = require('dargs');
-const {sleep} = require('./utils');
-const {events} = require('./types');
+const {sleep} = require('./../../../lib/utils');
+const {events} = require('./../../../lib/types');
 
 // create some args
 const args = {

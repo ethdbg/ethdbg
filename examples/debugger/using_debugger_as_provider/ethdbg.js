@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 // const { DebugProvider } = require('./../ethdbg/index');
-const DebugProvider = require('./debug_provider');
-const EthdbgError = require('./err');
+const DebugProvider = require('./../../../lib/debug_provider');
 const yargs = require('yargs');
 
 /**
@@ -141,7 +140,7 @@ function parseAccounts(accounts) {
     const ethdbg = new DebugProvider(options);
     ethdbg.run();
   } catch (err) {
-    throw new EthdbgError(`Error in ethdbg ${err}`);
+    throw new Error(`Error in ethdbg ${err}`);
   }
  })();
 
