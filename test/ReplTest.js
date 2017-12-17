@@ -10,7 +10,7 @@ describe('REPL', function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
-            expect(repl.execute("(2**800 + 1) - 2**800")).to.eql(1);
+            expect(repl.execute(testRPC, "(2**800 + 1) - 2**800")).to.eql(1);
         });
     });
 });
