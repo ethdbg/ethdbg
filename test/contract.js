@@ -7,7 +7,7 @@ describe('Contract', function () {
         it('should instantiate class successfully given source', function () {
             const logger = new Logger(1);
             const options = {
-                'source': "(2**800 + 1) - 2**800"
+                'source': 'contract x { function g() {} }'
             }
             const contract = new Contract(logger, 'test', options);
         });
