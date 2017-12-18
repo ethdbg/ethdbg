@@ -6,7 +6,7 @@ const {expect} = require('chai');
 
 describe('REPL', function () {
     describe('#execute()', function () {
-        it('should return a result of 1.', function () {
+        it('should return a result of 1', function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();

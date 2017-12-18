@@ -33,7 +33,7 @@ describe('Breakpoint', function() {
     });
   });
   describe('#get()', function() {
-    it('should return an object with the given attributes.', function() {
+    it('should return an object with the given attributes', function() {
       const breakpoint = new Breakpoint(
         7,
         {start: 3, end: 4},
