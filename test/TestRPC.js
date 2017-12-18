@@ -1,13 +1,13 @@
-/* These tests have been removed.
+/*
 const TestRPC = require('./../lib/test_rpc');
 const Logger = require('./../lib/logger');
 const Contract = require('./../lib/contract');
-const {expect} = require('chai');
+const { expect } = require('chai');
 
 
-describe('TestRPC', function() {
-  describe('#constructor()', function() {
-    it('should contain four attributes', function() {
+describe('TestRPC', function () {
+  describe('#constructor()', function () {
+    it('should contain four attributes', function () {
       let logger = new Logger(1);
       let testRPC = new TestRPC(logger);
       expect(testRPC).to.have.property('logger');
@@ -15,7 +15,7 @@ describe('TestRPC', function() {
       expect(testRPC).to.have.property('hostAddress');
       expect(testRPC).to.have.property('forkAddress');
     });
-    it('should contain two *correct* attributes', function() {
+    it('should contain two *correct* attributes', function () {
       let logger = new Logger(1);
       let testRPC = new TestRPC(logger);
       expect(testRPC.logger).to.equal(logger);
