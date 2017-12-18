@@ -1,18 +1,19 @@
 const { spawn } = require('child_process');
 const dargs = require('dargs');
-const { sleep } = require('./utils');
-const { events } = require('./types');
+const {sleep} = require('./../../../lib/utils');
+const {events} = require('./../../../lib/types');
 
 // create some args
 const args = {
   fork: false,
   port: 8545,
-  loggerLevel: 6,
+  loglvl: 6,
 };
 
 async function debugProviderExample() {
   // spawn your Program connected to the DebugProvider
   // passing in arguments to the constructor as an array
+  console.log(dargs(args));
   const ethdbg = spawn('./ethdbg.js', dargs(args));
 
   // setup events 
