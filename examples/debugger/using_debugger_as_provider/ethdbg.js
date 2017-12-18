@@ -58,10 +58,10 @@ let argv = parser.parse(process.argv);
 
 if (argv.d || argv.deterministic) {
   // Seed phrase; don't change to Ganache, maintain original determinism
-  argv.s = "TestRPC is awesome!"; 
+  argv.s = 'TestRPC is awesome!'; 
 }
 
-if (typeof argv.unlock == "string") {
+if (typeof argv.unlock == 'string') {
   argv.unlock = [argv.unlock];
 }
 
