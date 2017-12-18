@@ -1,9 +1,9 @@
 'use strict';
 
-const Debugger = require('./lib/debugger.js');
-const DebugProvider = require('./lib/debug_provider.js');
-const events = require('./lib/types.js').events;
-const err = require('./lib/err.js');
+const Debugger = require('./lib/debugger');
+const DebugProvider = require('./lib/debug_provider');
+const events = require('./lib/types').events;
+const err = require('./lib/err');
 
 module.exports = {
   Debugger,
