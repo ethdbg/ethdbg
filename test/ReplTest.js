@@ -12,7 +12,7 @@ describe('REPL', function () {
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
             let contract = new Contract(logger,
-                'greeter', { path: './../examples/example_solidity/greeter.sol' });
+                'greeter', { path: './examples/example_solidity/greeter.sol' });
             await contract.deploy({
                 provider: 'http://localhost:8546',
                 args: ['hello'],
@@ -24,7 +24,7 @@ describe('REPL', function () {
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
             let contract = new Contract(logger,
-                'greeter', { path: './../examples/example_solidity/greeter.sol' });
+                'greeter', { path: './examples/example_solidity/greeter.sol' });
             await contract.deploy({
                 provider: 'http://localhost:8546',
                 args: ['hello'],
