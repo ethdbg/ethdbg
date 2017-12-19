@@ -1,7 +1,4 @@
 import {EventEmitter} from 'events';
-import {Debugger} from './lib/debugger';
-import {DebugProvider} from './lib/debug_provider';
-import {events} from './lib/types';
 
 declare namespace ethdbg {
   export interface Debugger {
@@ -39,14 +36,34 @@ declare namespace ethdbg {
     
     serialize(ev: string, data: Object): string;
   }
-  
-  events: Object;
+
+  export enum events {
+    isReady=            'isReady',
+    ready=              'ready',
+    hitBreakpoint=      'hitBreakpoint',
+    addBreakpoints=     'addBreakpoints',
+    removeBreakpoints=  'removeBreakpoints',
+    clearAllBreakpoints='clearAllBreakpoints',
+    toggleBreakpoint=   'toggleBreakpoint',
+    addFiles=           'addFiles',
+    start=              'start',
+    stop=               'stop',
+    continue=           'continueExecution',
+    stepInto=           'stepInto',
+    stepOut=            'stepOut',
+    stepOver=           'stepOver',
+    getVarList=         'getVarList',
+    restart=            'restart',
+    kill=               'EXECUTE_ORDER_66',
+    message=            'message',
+  }
 }
+
 declare var Debugger: ethdbg.Debugger;
 declare var DebugProvider: ethdbg.DebugProvider;
 declare var events: ethdbg.events;
 
-export = {
+export {
   Debugger,
   DebugProvider,
   events,
