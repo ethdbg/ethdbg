@@ -4,7 +4,7 @@ import {DebugProvider} from './lib/debug_provider';
 import {events} from './lib/types';
 
 declare namespace ethdbg {
-  class Debugger {
+  export interface Debugger {
 
     constructor(options: Object);
 
@@ -29,7 +29,7 @@ declare namespace ethdbg {
     doSomethingIntensive(): void;
   }
 
-  class DebugProvider {
+  export interface DebugProvider {
     
     constructor(options: Object);
     
@@ -42,7 +42,12 @@ declare namespace ethdbg {
   
   events: Object;
 }
+declare var Debugger: ethdbg.Debugger;
+declare var DebugProvider: ethdbg.DebugProvider;
+declare var events: ethdbg.events;
 
 export = {
-  ethdbg
+  Debugger,
+  DebugProvider,
+  events,
 };
