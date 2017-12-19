@@ -9,7 +9,8 @@ describe('REPL', function () {
     describe('#execute()', function () {
         it('should pass silently', async function () {
             let logger = new Logger(5);
-            let testRPC = new GanacheWrapper(logger);
+            let testRPC = new GanacheWrapper(logger, 
+                { fork: false });
             let repl = new REPL();
             let contract = new Contract(logger,
                 'greeter', { path: './examples/example_solidity/greeter.sol' });
@@ -21,7 +22,8 @@ describe('REPL', function () {
         });
         it('should return a valid response from solidity functions', async function () {
             let logger = new Logger(5);
-            let testRPC = new GanacheWrapper(logger);
+            let testRPC = new GanacheWrapper(logger, 
+                { fork: false });
             let repl = new REPL();
             let contract = new Contract(logger,
                 'greeter', { path: './examples/example_solidity/greeter.sol' });
