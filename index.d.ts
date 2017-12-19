@@ -1,7 +1,4 @@
 import {EventEmitter} from 'events';
-import {Debugger} from './lib/debugger';
-import {DebugProvider} from './lib/debug_provider';
-import {events} from './lib/types';
 
 declare namespace ethdbg {
   export interface Debugger {
@@ -39,15 +36,12 @@ declare namespace ethdbg {
     
     serialize(ev: string, data: Object): string;
   }
-  
-  events: Object;
 }
 declare var Debugger: ethdbg.Debugger;
 declare var DebugProvider: ethdbg.DebugProvider;
-declare var events: ethdbg.events;
 
-export = {
+
+export {
   Debugger,
   DebugProvider,
-  events,
 };
