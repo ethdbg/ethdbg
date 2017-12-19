@@ -1,7 +1,10 @@
 import {EventEmitter} from 'events';
+import {Debugger} from './lib/debugger';
+import {DebugProvider} from './lib/debug_provider';
+import {events} from './lib/types';
 
 declare namespace ethdbg {
-  interface Debugger implements EventEmitter {
+  class Debugger {
 
     constructor(options: Object);
 
@@ -10,10 +13,10 @@ declare namespace ethdbg {
     start(): Promise<Debugger>;
 
     toggleBreakpoint(fp: string, ln: number): Debugger;
+
+    addBreakpoints(breakpoints: Array<Map<number, string>>): Debugger;
     
-    addBreakpoints(Array<Array>): Debugger;
-    
-    removeBreakpoints(Array<Array>): Debugger;
+    removeBreakpoints(breakpoints: Array<Map<number, string>>): Debugger;
 
     stepInto(): Debugger;
 
@@ -21,12 +24,12 @@ declare namespace ethdbg {
 
     events(): void;
 
-    trackCode(addr: string): Promise<boolean> | Promise<Contract>;
+    trackCode(addr: string): Promise<boolean> | Promise<any>;
     
     doSomethingIntensive(): void;
   }
 
-  interface DebugProvider implements Debugger {
+  class DebugProvider {
     
     constructor(options: Object);
     
@@ -36,26 +39,10 @@ declare namespace ethdbg {
     
     serialize(ev: string, data: Object): string;
   }
-
-  interface types {
-    interface events {
-      isReady:            'isReady',
-      ready:              'ready',
-      hitBreakpoint:      'hitBreakpoint',
-      addBreakpoints:     'addBreakpoints',
-      removeBreakpoints:  'removeBreakpoints',
-      clearAllBreakpoints:'clearAllBreakpoints',
-      toggleBreakpoint:   'toggleBreakpoint',
-      addFiles:           'addFiles',
-      start:              'start',
-      stop:               'stop',
-      continue:           'continueExecution',
-      stepInto:           'stepInto',
-      stepOver:           'stepOver',
-      getVarList:         'getVarList',
-      restart:            'restart',
-      kill:               'EXECUTE_ORDER_66',
-      message:            'message',
-    }
-  }
+  
+  events: Object;
 }
+
+export = {
+  ethdbg
+};
