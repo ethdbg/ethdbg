@@ -7,28 +7,16 @@ const { expect } = require('chai');
 
 describe('REPL', function () {
     describe('#execute()', function () {
-        it('should pass silently', async function () {
+        it('should pass silently', function () {
             let logger = new Logger(5);
             let machine = new VM();
             let repl = new REPL();
-            let contract = new Contract(logger,
-                'greeter', { path: './examples/example_solidity/greeter.sol' });
-            await contract.deploy({
-                provider: 'http://localhost:8546',
-                args: ['hello'],
-            });
             repl.execute(machine, "x = 1; y = 1s; return x+y;", 33, contract);
         });
-        it('should return a valid response from solidity functions', async function () {
+        it('should return a valid response from solidity functions', function () {
             let logger = new Logger(5);
             let machine = new VM();
             let repl = new REPL();
-            let contract = new Contract(logger,
-                'greeter', { path: './examples/example_solidity/greeter.sol' });
-            await contract.deploy({
-                provider: 'http://localhost:8546',
-                args: ['hello'],
-            });
             let result = repl.execute(machine, "x = 1; y = 1; return x+y;", 33, contract);
             expect(result).to.equal(2);
         });
