@@ -10,13 +10,25 @@ describe('REPL', function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
-            repl.execute(testRPC, 'contract x { function g() {} }');
+            let contract = new Contract(logger,
+                'greeter', { path: './../examples/example_solidity/greeter.sol' });
+            await contract.deploy({
+                provider: 'http://localhost:8546',
+                args: ['hello'],
+            });
+            repl.execute(testRPC, 'contract x { function g() {} }', 20, contract);
         });
-        it('should return a valid response from solidity functions', function() {
+        it('should return a valid response from solidity functions', function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
-            let result = repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;");
+            let contract = new Contract(logger,
+                'greeter', { path: './../examples/example_solidity/greeter.sol' });
+            await contract.deploy({
+                provider: 'http://localhost:8546',
+                args: ['hello'],
+            });
+            let result = repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;", 20, contract);
             expect(result).to.equal(2);
         });
     });
