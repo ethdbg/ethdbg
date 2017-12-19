@@ -1,12 +1,13 @@
 const Logger = require('./../lib/logger');
 const REPL = require('./../lib/repl');
 const GanacheWrapper = require('./../lib/ganache_wrapper');
+const Contract = require('./../lib/contract');
 const { expect } = require('chai');
 
 
 describe('REPL', function () {
     describe('#execute()', function () {
-        it('should pass silently', function () {
+        it('should pass silently', async function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
@@ -18,7 +19,7 @@ describe('REPL', function () {
             });
             repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;", 20, contract);
         });
-        it('should return a valid response from solidity functions', function () {
+        it('should return a valid response from solidity functions', async function () {
             let logger = new Logger(5);
             let testRPC = new GanacheWrapper(logger);
             let repl = new REPL();
