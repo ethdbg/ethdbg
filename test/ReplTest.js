@@ -17,7 +17,7 @@ describe('REPL', function () {
                 provider: 'http://localhost:8546',
                 args: ['hello'],
             });
-            repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;", 20, contract);
+            repl.execute(testRPC, "x = 1; y = 1s; return x+y;", 33, contract);
         });
         it('should return a valid response from solidity functions', async function () {
             let logger = new Logger(5);
@@ -29,7 +29,7 @@ describe('REPL', function () {
                 provider: 'http://localhost:8546',
                 args: ['hello'],
             });
-            let result = repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;", 20, contract);
+            let result = repl.execute(testRPC, "x = 1; y = 1; return x+y;", 33, contract);
             expect(result).to.equal(2);
         });
     });
