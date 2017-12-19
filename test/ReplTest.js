@@ -16,7 +16,7 @@ describe('REPL', function () {
                 provider: 'http://localhost:8546',
                 args: ['hello'],
             });
-            repl.execute(testRPC, 'contract x { function g() {} }', 20, contract);
+            repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;", 20, contract);
         });
         it('should return a valid response from solidity functions', function () {
             let logger = new Logger(5);
