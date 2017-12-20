@@ -11,13 +11,15 @@ describe('REPL', function () {
             let logger = new Logger(5);
             let machine = new VM();
             let repl = new REPL();
-            repl.execute(machine, "x = 1; y = 1s; return x+y;");
+            let nada = '';
+            repl.execute(machine, "x = 1; y = 1s; return x+y;", nada);
         });
         it('should return a valid response from solidity functions', function () {
             let logger = new Logger(5);
             let machine = new VM();
             let repl = new REPL();
-            let result = repl.execute(machine, "x = 1; y = 1; return x+y;");
+            let nada = '';
+            let result = repl.execute(machine, "x = 1; y = 1; return x+y;", nada);
             expect(result).to.equal(2);
         });
     });
