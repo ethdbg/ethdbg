@@ -53,7 +53,7 @@
 		"pino": "^4.10.2",
 		"remix-core": "0.0.3",
 		"remix-lib": "0.0.4",
-		"solc": "^0.4.18",
+		"solc": "^0.4.19",
 		"truffle-contract": "^3.0.1",
 		"vscode": "^1.1.10",
 		"web3": "^0.20.2",
