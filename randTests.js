@@ -39,7 +39,7 @@ function test() {
 } test();
 
 */
-
+/*
 function deserialize(data) {
   if (data instanceof Buffer) data = data.toString();
   else if (typeof data != 'string') {
@@ -61,11 +61,12 @@ function deserialize(data) {
       console.log(`event: ${data.substr(0, 32)}`);
     }
   }
- 
+  */
   /** trims _all_ zeros from a string
    * @param{string} str - string to trim zeros from
    * @return{string} - trim without leading zeros
-  */
+   */
+/*
   function trimZeros(str) {
     return str.replace(/[0]+|[0]+$/g, '');
   }
@@ -80,4 +81,30 @@ console.log('');
 console.log('');
 console.log('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}')
 console.log(deserialize('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}'));
+*/
+
+
+const simpleSol = `
+pragma solidity ^0.4.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) {
+        storedData = x;
+    }
+
+    function get() constant returns (uint) {
+        return storedData;
+    }
+}
+`;
+let logger = new Logger(6, false);
+let contract = new Contract(logger, 'SimpleStorage', {source: simpleSol});
+
+console.log(contract.getBytecode());
+console.log(contract.getRuntimeBytecode());
+console.log(contract.getName());
+
+
 
