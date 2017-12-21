@@ -45,7 +45,7 @@ loggerLevel: Amount of output to show,
   - 0: Silent (Not Recommended)
   a Level of '5' will also print error levels 1-4, level of 4, 1-3, and so on.
 */
-
+console.log("Ethdbg started!");
 const parser = yargs()
   .options('unlock', {
     type: 'string',
@@ -133,10 +133,10 @@ function parseAccounts(accounts) {
   return ret;
 }
 
-(() => {
+(async () => {
   try {
     let opts = {};
-    _.forIn(options, (val, key) => {  // conv string bools to intrinsic types
+    _.forIn(options, (val, key) => { // conv string bools to intrinsic types
       if (options[key] === 'false' || options[key] === 'true') {
         opts[key] = (val == 'true'); 
       } else {
@@ -144,7 +144,7 @@ function parseAccounts(accounts) {
       }
     });
     const ethdbg = new DebugProvider(opts);
-    ethdbg.run();
+    await ethdbg.run();
   } catch (err) {
     throw new Error(`Error in ethdbg ${err}`);
   }

@@ -8,19 +8,6 @@ const Logger = require('./lib/logger');
 const Web3 = require('web3');
 
 
-const simple = './examples/example_solidity/simple.sol';
-const source = fs.readFileSync(simple, 'utf8');
-
-const logger = new Logger(5);
-let simple_storage = new Contract(logger, 'SimpleStorage', {
-  source,
-});
-console.log(simple_storage.provider);
-console.log(simple_storage);
-console.log(simple_storage.AST);
-console.log(simple_storage.compiledSource);
-console.log(simple_storage.source);
-console.log(simple_storage.getSource());
 
 /*
  * Breakpoints and Contract Names
@@ -52,4 +39,45 @@ function test() {
 } test();
 
 */
+
+function deserialize(data) {
+  if (data instanceof Buffer) data = data.toString();
+  else if (typeof data != 'string') {
+    throw new Error(
+      'Cannot deserialize data which is not a string or buffer'
+    );
+  }
+  console.log(data.substr(32));
+  const event = trimZeros(data.substr(0, 32));
+  let input;
+  if (data.substr(32) != 'null' && data.substr(32) != 'undefined') {
+    try {
+      input = JSON.parse(data.substr(32));
+    } catch (err) {
+      console.log(err.message);
+      console.log('occured in deserialize on line 55');
+      console.log(`string deserializing: ${data}`);
+      console.log(`substr of string: ${data.substr(32)}`);
+      console.log(`event: ${data.substr(0, 32)}`);
+    }
+  }
+ 
+  /** trims _all_ zeros from a string
+   * @param{string} str - string to trim zeros from
+   * @return{string} - trim without leading zeros
+  */
+  function trimZeros(str) {
+    return str.replace(/[0]+|[0]+$/g, '');
+  }
+  return [event, input];
+}
+
+
+console.log('addBreakpoints000000000000000000null');
+console.log(deserialize('addBreakpoints000000000000000000null'));
+
+console.log('');
+console.log('');
+console.log('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}')
+console.log(deserialize('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}'));
 
