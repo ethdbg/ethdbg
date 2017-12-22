@@ -21,7 +21,7 @@ describe('REPL', function () {
             let res = repl('uint a = 1; uint b = 1; a + b;')
                 .then(result => {
                     if (result !== null) {
-                        expect(result).to.equal(2);
+                        expect(result.c[0]).to.equal(2);
                     }
                 })
         });
