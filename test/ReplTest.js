@@ -6,16 +6,25 @@ describe('REPL', function () {
     describe('#execute(machine: ethereumjs-vm, code: string)', function () {
         it('should pass silently', function () {
             let repl = REPL();
-            repl('uint a = 1; uint b = 1; a + b;')
+            let res = repl('uint a = 1; uint b = 1; a + b;')
                 .then(result => {
-                    // if null is returned, it means the last command was not an expression with a return value
                     if (result !== null) {
-                        console.log(result);
+                        return result;
                     }
                 })
                 .catch(err => {
                     console.log(err)
                 });
+            expect(res).to.equal(2);
+        });
+        it('should return the correct value for 1+1===2', function () {
+            let repl = REPL();
+            let res = repl('uint a = 1; uint b = 1; a + b;')
+                .then(result => {
+                    if (result !== null) {
+                        assert(result === 2);
+                    }
+                })
         });
     });
 });
