@@ -7,6 +7,9 @@ const Contract = require('./lib/contract');
 const Logger = require('./lib/logger');
 const Web3 = require('web3');
 const util = require('util');
+const simple = './examples/example_solidity/simple.sol';
+const augur = './examples/example_solidity/Augur/Augur.sol';
+const greeter = './examples/example_solidity/greeter.sol';
 
 
 
@@ -22,12 +25,12 @@ const util = require('util');
  */
 
 async function test() {
-  const simple = './examples/example_solidity/greeter.sol';
   const logger = new Logger(6);
   const cManager = new ContractManager(logger);
-  cManager.add(simple);
+  cManager.add(augur);
+  /*cManager.add(simple);
   let contract = cManager.getBySource(simple);
-  console.log(contract[0].getLocationOfContracts());
+  console.log(contract.getLocationOfContracts());*/
 } test();
 
 
