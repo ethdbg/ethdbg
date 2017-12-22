@@ -37,6 +37,7 @@
 	"homepage": "https://github.com/InsidiousMind/ethdbg#readme",
 	"dependencies": {
 		"bignumber.js": "^4.1.0",
+		"bluebird": "^3.4.1",
 		"cli-color": "^1.2.0",
 		"dargs": "^5.1.0",
 		"eslint": "^4.13.1",
