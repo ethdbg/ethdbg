@@ -8,15 +8,31 @@ describe('REPL', function () {
         it('should pass silently', function () {
             let machine = new VM();
             let repl = new REPL();
-            let nada = '';
-            repl.execute(machine, "x = 1; y = 1s; return x+y;", nada);
+            repl('1+1')
+                .then(result => {
+                    // if null is returned, it means the last command was not an expression with a return value
+                    if (result !== null) {
+                        return result.toString();
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                });
         });
         it('should return a valid response from solidity functions', function () {
             let machine = new VM();
             let repl = new REPL();
-            let nada = '';
-            let result = repl.execute(machine, "x = 1; y = 1; return x+y;", nada);
-            expect(result).to.equal(2);
+            let res = repl('1+1')
+                .then(result => {
+                    // if null is returned, it means the last command was not an expression with a return value
+                    if (result !== null) {
+                        return result.toString();
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+            expect(res).to.equal(2);
         });
     });
 });
