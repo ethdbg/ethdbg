@@ -7,7 +7,7 @@ describe('REPL', function () {
     describe('#execute(machine: ethereumjs-vm, code: string)', function () {
         it('should pass silently', function () {
             let machine = new VM();
-            let repl = new REPL();
+            let repl = REPL();
             repl('1+1')
                 .then(result => {
                     // if null is returned, it means the last command was not an expression with a return value
@@ -21,7 +21,7 @@ describe('REPL', function () {
         });
         it('should return a valid response from solidity functions', function () {
             let machine = new VM();
-            let repl = new REPL();
+            let repl = REPL();
             let res = repl('1+1')
                 .then(result => {
                     // if null is returned, it means the last command was not an expression with a return value
