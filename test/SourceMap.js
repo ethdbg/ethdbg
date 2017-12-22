@@ -34,7 +34,7 @@ describe('SourceMap', function () {
     const srcMap = new SourceMap(logger, 'SimpleStorage', {
       path: './test/Simple.sol',
     });
-    expect(srcMap.get(7)).to.deep.equal({
+    expect(srcMap.get(7)).to.eql({
       startEnd: {
         start: { line: 7, column: 8 },
         end: { line: 7, column: 18 },
@@ -49,7 +49,7 @@ describe('SourceMap', function () {
       const srcMap = new SourceMap(logger, 'SimpleStorage',
         { path: './test/Simple.sol' });
       const srcMapObj = srcMap.getJSONMapArray();
-      expect(srcMapObj[7][1]).to.deep.equal({
+      expect(srcMapObj[7][1]).to.eql({
         startEnd: {
           start: { line: 7, column: 8 },
           end: { line: 7, column: 18 },

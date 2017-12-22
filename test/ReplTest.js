@@ -1,23 +1,29 @@
-const Logger = require('./../lib/logger');
 const REPL = require('./../lib/repl');
-const GanacheWrapper = require('./../lib/ganache_wrapper');
 const { expect } = require('chai');
 
 
 describe('REPL', function () {
-    describe('#execute()', function () {
+    describe('#execute(machine: ethereumjs-vm, code: string)', function () {
         it('should pass silently', function () {
-            let logger = new Logger(5);
-            let testRPC = new GanacheWrapper(logger);
-            let repl = new REPL();
-            repl.execute(testRPC, 'contract x { function g() {} }');
+            let repl = REPL();
+            let res = repl('uint a = 1; uint b = 1; a + b;')
+                .then(result => {
+                    if (result !== null) {
+                        return result;
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                });
         });
-        it('should return a valid response from solidity functions', function() {
-            let logger = new Logger(5);
-            let testRPC = new GanacheWrapper(logger);
-            let repl = new REPL();
-            let result = repl.execute(testRPC, "uint x = 1; uint y = 1s; return x+y;");
-            expect(result).to.equal(2);
+        it('should return the correct value for 1+1===2', function () {
+            let repl = REPL();
+            let res = repl('uint a = 1; uint b = 1; a + b;')
+                .then(result => {
+                    if (result !== null) {
+                        expect(result.c[0]).to.equal(2);
+                    }
+                })
         });
     });
 });

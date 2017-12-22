@@ -1,11 +1,8 @@
 #! /usr/bin/env node
-// const { DebugProvider } = require('./../ethdbg/index');
-const DebugProvider = require('./../../../lib/debug_provider');
+// TODO remove alot of the boilerplate by moving it into ethdbg main
+const {DebugProvider} = require('/home/insi/Projects/ETHDBG/ethdbg/index.js');
 const yargs = require('yargs');
-
-/**
- * this is what is going to be spawned; hence it does not need to be TS
- */
+const _ = require('lodash');
 
 /**
   Available Options (taken directly from ganache-cli:
@@ -48,12 +45,13 @@ loggerLevel: Amount of output to show,
   - 0: Silent (Not Recommended)
   a Level of '5' will also print error levels 1-4, level of 4, 1-3, and so on.
 */
-
+console.log("Ethdbg started!");
 const parser = yargs()
   .options('unlock', {
     type: 'string',
     alias: 'u'
   });
+ 
 let argv = parser.parse(process.argv);
 
 if (argv.d || argv.deterministic) {
@@ -135,12 +133,19 @@ function parseAccounts(accounts) {
   return ret;
 }
 
-(() => {
+(async () => {
   try {
-    const ethdbg = new DebugProvider(options);
-    ethdbg.run();
+    let opts = {};
+    _.forIn(options, (val, key) => { // conv string bools to intrinsic types
+      if (options[key] === 'false' || options[key] === 'true') {
+        opts[key] = (val == 'true'); 
+      } else {
+        opts[key] = val;
+      }
+    });
+    const ethdbg = new DebugProvider(opts);
+    await ethdbg.run();
   } catch (err) {
     throw new Error(`Error in ethdbg ${err}`);
   }
- })();
-
+})();

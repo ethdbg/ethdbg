@@ -11,3 +11,5 @@ build/
 prod_docs/
 dev_docs/
 package-lock.json
+.vagrant/
+ubuntu-xenial-16.04-cloudimg-console.log
