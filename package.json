@@ -51,6 +51,7 @@
 		"node-gyp": "^3.6.2",
 		"node-gyp-install": "^2.2.0",
 		"pino": "^4.10.2",
+		"promise.waterfall": "^3.2.0",
 		"remix-core": "0.0.3",
 		"remix-lib": "0.0.4",
 		"solc": "^0.4.19",
