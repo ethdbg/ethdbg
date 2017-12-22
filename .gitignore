@@ -11,3 +11,4 @@ build/
 prod_docs/
 dev_docs/
 package-lock.json
+.vagrant/
