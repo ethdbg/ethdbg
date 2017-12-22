@@ -59,6 +59,7 @@
 		"vscode": "^1.1.10",
 		"web3": "^0.20.2",
 		"wu": "^2.1.0",
+		"xregexp": "^3.2.0",
 		"yargs": "^10.0.3"
 	},
 	"devDependencies": {

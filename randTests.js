@@ -6,6 +6,7 @@ const ContractManager = require('./lib/contract_manager');
 const Contract = require('./lib/contract');
 const Logger = require('./lib/logger');
 const Web3 = require('web3');
+const util = require('util');
 
 
 
@@ -19,14 +20,16 @@ const Web3 = require('web3');
  *  - from line number, can get the specific contract name
  *  - deploy contract to our TestRPC
  */
-/*
+
 async function test() {
   const simple = './examples/example_solidity/greeter.sol';
-  const source = fs.readFileSync(simple, 'utf8');
-  const compiledSource = solc.compile(source, 1);
-  console.log(compiledSource);
+  const logger = new Logger(6);
+  const cManager = new ContractManager(logger);
+  cManager.add(simple);
+  let contract = cManager.getBySource(simple);
+  console.log(contract[0].getLocationOfContracts());
 } test();
-*/
+
 
 /*
 function trimRight(str) {
@@ -82,29 +85,6 @@ console.log('');
 console.log('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}')
 console.log(deserialize('addBreakpoints000000000000000000{"source":"/home/insi/Projects/ETHDBG/test-project/contracts/greeter.sol","lines":[32,33]}'));
 */
-
-
-const simpleSol = `
-pragma solidity ^0.4.0;
-
-contract SimpleStorage {
-    uint storedData;
-
-    function set(uint x) {
-        storedData = x;
-    }
-
-    function get() constant returns (uint) {
-        return storedData;
-    }
-}
-`;
-let logger = new Logger(6, false);
-let contract = new Contract(logger, 'SimpleStorage', {source: simpleSol});
-
-console.log(contract.getBytecode());
-console.log(contract.getRuntimeBytecode());
-console.log(contract.getName());
 
 
 
