@@ -19,20 +19,5 @@ describe('REPL', function () {
                     console.log(err)
                 });
         });
-        it('should return a valid response from solidity functions', function () {
-            let machine = new VM();
-            let repl = REPL();
-            let res = repl('uint a = 1; uint b = 1; a + b;')
-                .then(result => {
-                    // if null is returned, it means the last command was not an expression with a return value
-                    if (result !== null) {
-                        console.log(result);
-                    }
-                })
-                .catch(err => {
-                    console.log(err)
-                });
-            expect(res).to.equal(2);
-        });
     });
 });
