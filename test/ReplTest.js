@@ -5,7 +5,6 @@ const { expect } = require('chai');
 describe('REPL', function () {
     describe('#execute(machine: ethereumjs-vm, code: string)', function () {
         it('should pass silently', function () {
-            let machine = new VM();
             let repl = REPL();
             repl('uint a = 1; uint b = 1; a + b;')
                 .then(result => {
