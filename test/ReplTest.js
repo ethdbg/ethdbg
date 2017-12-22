@@ -1,5 +1,4 @@
 const REPL = require('./../lib/repl');
-const VM = require('ethereumjs-vm');
 const { expect } = require('chai');
 
 
