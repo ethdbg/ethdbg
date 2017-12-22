@@ -12,7 +12,7 @@ describe('REPL', function () {
                 .then(result => {
                     // if null is returned, it means the last command was not an expression with a return value
                     if (result !== null) {
-                        return result.toString();
+                        console.log(result);
                     }
                 })
                 .catch(err => {
@@ -26,7 +26,7 @@ describe('REPL', function () {
                 .then(result => {
                     // if null is returned, it means the last command was not an expression with a return value
                     if (result !== null) {
-                        return resolve(result.toString());
+                        console.log(result);
                     }
                 })
                 .catch(err => {
