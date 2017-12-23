@@ -5,12 +5,13 @@ const fs = require('fs');
 const ContractManager = require('./lib/contract_manager');
 const Contract = require('./lib/contract');
 const Logger = require('./lib/logger');
+const SolidityWrapper = require('./lib/solidity_wrapper');
 const Web3 = require('web3');
 const util = require('util');
 const simple = './examples/example_solidity/simple.sol';
 const augur = './examples/example_solidity/Augur/Augur.sol';
 const greeter = './examples/example_solidity/greeter.sol';
-
+const testC = './testC.sol';
 
 
 /*
@@ -26,11 +27,7 @@ const greeter = './examples/example_solidity/greeter.sol';
 
 async function test() {
   const logger = new Logger(6);
-  const cManager = new ContractManager(logger);
-  cManager.add(augur);
-  /*cManager.add(simple);
-  let contract = cManager.getBySource(simple);
-  console.log(contract.getLocationOfContracts());*/
+  const solc = new SolidityWrapper(testC, 'greeter');
 } test();
 
 
