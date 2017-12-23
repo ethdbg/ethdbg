@@ -5,8 +5,13 @@ const fs = require('fs');
 const ContractManager = require('./lib/contract_manager');
 const Contract = require('./lib/contract');
 const Logger = require('./lib/logger');
+const SolidityWrapper = require('./lib/solidity_wrapper');
 const Web3 = require('web3');
-
+const util = require('util');
+const simple = './examples/example_solidity/simple.sol';
+const augur = './examples/example_solidity/Augur/Augur.sol';
+const greeter = './examples/example_solidity/greeter.sol';
+const testC = './testC.sol';
 
 
 /*
@@ -19,14 +24,13 @@ const Web3 = require('web3');
  *  - from line number, can get the specific contract name
  *  - deploy contract to our TestRPC
  */
-/*
+
 async function test() {
-  const simple = './examples/example_solidity/greeter.sol';
-  const source = fs.readFileSync(simple, 'utf8');
-  const compiledSource = solc.compile(source, 1);
-  console.log(compiledSource);
+  const logger = new Logger(6);
+  const solc = new SolidityWrapper(augur, 'Augur');
+  // console.log(solc.getLinkedSource());
 } test();
-*/
+
 
 /*
 function trimRight(str) {
@@ -105,6 +109,5 @@ let contract = new Contract(logger, 'SimpleStorage', {source: simpleSol});
 console.log(contract.getBytecode());
 console.log(contract.getRuntimeBytecode());
 console.log(contract.getName());
-
 
 
