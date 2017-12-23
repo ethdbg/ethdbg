@@ -28,7 +28,7 @@ const testC = './testC.sol';
 async function test() {
   const logger = new Logger(6);
   const solc = new SolidityWrapper(augur, 'Augur');
-  console.log(solc.getLinkedSource());
+  // console.log(solc.getLinkedSource());
 } test();
 
 
