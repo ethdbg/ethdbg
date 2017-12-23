@@ -1,6 +1,6 @@
 pragma solidity 0.4.18;
 
-import "testC2.sol"
+import "testC2.sol";
 
 contract greeter is mortal {
     /* Define variable greeting of the type string */
