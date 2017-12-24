@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const SolidityWrapper = require('./../lib/solidity_wrapper');
+
 describe('SolidityWrapper', function () {
     describe('#constructor(sourcePath: string, name: string)', function () {
         it('should instantiate a new SolidityWrapper without issue', function () {
