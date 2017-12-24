@@ -49,7 +49,7 @@ Thanks to [yann300](https://github.com/yann300), whose `astWalker.js`,
 Additional thanks to [raineorshine](https://github.com/raineorshine) whose Solidity REPL process forms the core of arbitrary code execution.
 
 ### How To Contribute
-- Read the Contribution Guidelines <Link to Contribution Guidelines Here>
+- [Read the Contribution Guidelines](./CONTRIBUTING.md)
 
 If you would like to donate to this project and support the contributors,
 please send your ETH or ERC20 tokens to `insidious.eth`

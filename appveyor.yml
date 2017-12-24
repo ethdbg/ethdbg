@@ -1,0 +1,12 @@
+install:
+  - ps: Install-Product node 7.9 x64
+
+build_script:
+  - npm install
+
+test_script:
+  - npm test
+
+after_build:
+  - npm run docgen
+  - npm run docgen_prod
