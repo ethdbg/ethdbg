@@ -6,3 +6,7 @@ build_script:
 
 test_script:
   - npm test
+
+after_build:
+  - npm run docgen
+  - npm run docgen_prod
