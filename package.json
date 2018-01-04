@@ -37,11 +37,12 @@
 	"homepage": "https://github.com/InsidiousMind/ethdbg#readme",
 	"dependencies": {
 		"bignumber.js": "^4.1.0",
-		"byline": "^5.0.0",
 		"bluebird": "^3.4.1",
+		"byline": "^5.0.0",
 		"cli-color": "^1.2.0",
 		"dargs": "^5.1.0",
 		"eslint": "^4.13.1",
+		"eth-new-contract": "^0.3.0",
 		"ethereumjs-util": "^5.1.2",
 		"ethereumjs-vm": "^2.3.2",
 		"ganache-core": "^2.0.2",
