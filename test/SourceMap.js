@@ -39,7 +39,7 @@ describe('SourceMap', function () {
         start: { line: 7, column: 8 },
         end: { line: 7, column: 18 },
       },
-      map: { start: 107, length: 10, file: 0, jump: '-' },
+      map: { start: 114, length: 10, file: 0, jump: '-' },
       offset: 8,
     });
   });
@@ -54,7 +54,7 @@ describe('SourceMap', function () {
           start: { line: 7, column: 8 },
           end: { line: 7, column: 18 },
         },
-        map: { start: 107, length: 10, file: 0, jump: '-' },
+        map: { start: 114, length: 10, file: 0, jump: '-' },
         offset: 8,
       });
     });
