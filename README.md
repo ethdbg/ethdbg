@@ -37,6 +37,7 @@ The debug process looks like:
 ### General TODO:
 - cleanup README/documentation old unecessary files
 - add examples of using the functions provided
+- DEPLOY ARGUMENTS -- IMPORTANT
 
 
 - make sure docstrings are all correct, and formatted nicely
