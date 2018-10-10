@@ -1,3 +1,8 @@
+SEE: https://github.com/ethdbg/edb
+
+this repository is no longer being maintained and is an older version of the above.
+
+
 # ethdbg
 A Debugger for Ethereum Programming Languages
 
